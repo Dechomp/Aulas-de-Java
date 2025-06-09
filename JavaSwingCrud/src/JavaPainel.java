@@ -29,7 +29,7 @@ public class JavaPainel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ragSexo = new javax.swing.ButtonGroup();
+        btnGrp_sexo = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         btnSalvar = new javax.swing.JButton();
         lblNome = new javax.swing.JLabel();
@@ -39,6 +39,7 @@ public class JavaPainel extends javax.swing.JFrame {
         radFeminino = new javax.swing.JRadioButton();
         lblIdioma = new javax.swing.JLabel();
         cbbIdioma = new javax.swing.JComboBox<>();
+        btnLimpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,17 +54,23 @@ public class JavaPainel extends javax.swing.JFrame {
 
         lblSexo.setText("Sexo");
 
-        ragSexo.add(radMasculino);
-        radMasculino.setSelected(true);
+        btnGrp_sexo.add(radMasculino);
         radMasculino.setText("Masculino");
 
-        ragSexo.add(radFeminino);
+        btnGrp_sexo.add(radFeminino);
         radFeminino.setText("Feminino");
 
         lblIdioma.setText("Idioma");
         lblIdioma.setToolTipText("");
 
         cbbIdioma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Português", "Inglês", "Espanhol", "Japonês" }));
+
+        btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -84,9 +91,11 @@ public class JavaPainel extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(cbbIdioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnSalvar))
+                        .addComponent(btnSalvar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnLimpar))
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(558, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,8 +113,9 @@ public class JavaPainel extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblIdioma)
                     .addComponent(cbbIdioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalvar))
-                .addContainerGap(591, Short.MAX_VALUE))
+                    .addComponent(btnSalvar)
+                    .addComponent(btnLimpar))
+                .addContainerGap(283, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -128,6 +138,12 @@ public class JavaPainel extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void limparFormulario(){
+        txtNome.setText("");
+        btnGrp_sexo.clearSelection();
+        cbbIdioma.setSelectedIndex(0);
+    }
+    
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         Conexao c = new Conexao();
@@ -135,42 +151,53 @@ public class JavaPainel extends javax.swing.JFrame {
         
         Pessoa p = new Pessoa();
         
-        String nome;
+        String nome = "";
         nome = (String) txtNome.getText();
         
         if("".equals(nome)){
             JOptionPane.showMessageDialog(null, "Digite um nome: ", "Erro", JOptionPane.ERROR_MESSAGE);
         }
-        else{
-            String sexo;
         
-            if (radMasculino.isSelected()){
-                sexo = "M";
-            }
-            else{
-                sexo = "F";
-            }
-            JOptionPane.showMessageDialog(null,"Opção escolhida \nSexo: "+ sexo, "Aviso", JOptionPane.INFORMATION_MESSAGE);
+        String sexo = "";
 
-            String idioma;
-            idioma = (String) cbbIdioma.getSelectedItem();
+        if (radMasculino.isSelected()){
+            sexo = "M";
+        }
+        else if (radFeminino.isSelected()){
+            sexo = "F";
             
-            JOptionPane.showMessageDialog(null,"Opção escolhida\nIdioma: "+ idioma, "Aviso", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Sexo: ", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        JOptionPane.showMessageDialog(null,"Opção escolhida \nSexo: "+ sexo, "Aviso", JOptionPane.INFORMATION_MESSAGE);
 
+        String idioma = "";
+        idioma = (String) cbbIdioma.getSelectedItem();
+
+        JOptionPane.showMessageDialog(null,"Opção escolhida\nIdioma: "+ idioma, "Aviso", JOptionPane.INFORMATION_MESSAGE);
+        
+        if("".equals(nome) || "".equals(nome) || "".equals(nome)){
+            JOptionPane.showMessageDialog(null, "Insira todas as informações", "Campo vazio", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
             p.setNome(nome);
             p.setSexo(sexo);
             p.setIdioma(idioma);
 
             PessoaDAO pDAO= new PessoaDAO();
             pDAO.inserir(p);
-            
+
             JOptionPane.showMessageDialog(null,"Inserção realizada com sucesso!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
         }
-        
-        
-        
+
         
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        // TODO add your handling code here:
+        limparFormulario();
+    }//GEN-LAST:event_btnLimparActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,6 +235,8 @@ public class JavaPainel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup btnGrp_sexo;
+    private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cbbIdioma;
     private javax.swing.JPanel jPanel1;
@@ -216,7 +245,6 @@ public class JavaPainel extends javax.swing.JFrame {
     private javax.swing.JLabel lblSexo;
     private javax.swing.JRadioButton radFeminino;
     private javax.swing.JRadioButton radMasculino;
-    private javax.swing.ButtonGroup ragSexo;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 }
