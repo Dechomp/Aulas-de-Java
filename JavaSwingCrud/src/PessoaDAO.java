@@ -1,6 +1,7 @@
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /*
@@ -37,6 +38,38 @@ public class PessoaDAO {
             
         } catch(SQLException ex){
             System.out.println("Erro ao inserir pessoa: " + ex.getMessage());
+        }
+    }
+    
+    public Pessoa getPessoa(int id){
+        String sql = "SELECT * FROM pessoa where id = ?";
+        
+        try{
+            PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            //Comentários do professor:
+            // 1º parâmetro é o SQL
+            
+            // 2º parâmetro é o tipo do ResultSet -
+            // ResultSet scroll, ou seja, o cursor se move para frente ou para trás.
+            // Este tipo de ResultSet é sensível às alterações feitas no banco de dados, ou seja, as modificações feitas no banco de dados são refletidas no ResultSet.
+            
+            // 3º parâmetro é sobre os parâmetros de concorrência – pode ser "read only" ou atualizável
+
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            Pessoa p = new Pessoa();
+            
+            rs.first();
+            
+            p.setId(id);
+            p.setNome(rs.getString("nome"));
+            p.setSexo(rs.getString("sexo"));
+            p.setIdioma(rs.getString("idioma"));
+            
+            return p;
+        }catch (SQLException ex){
+            System.out.println("Erro ao consultar pessoa: "+ ex.getMessage());
+            return null;
         }
     }
 }
