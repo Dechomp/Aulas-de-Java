@@ -8,3 +8,5 @@ create table pessoa(
  sexo varchar(1),
  idioma varchar(30)
 );
+
+select * from Pessoa;
