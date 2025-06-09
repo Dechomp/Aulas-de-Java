@@ -1,4 +1,5 @@
 
+import java.util.HashSet;
 import javax.swing.JOptionPane;
 
 /*
@@ -40,8 +41,21 @@ public class JavaPainel extends javax.swing.JFrame {
         lblIdioma = new javax.swing.JLabel();
         cbbIdioma = new javax.swing.JComboBox<>();
         btnLimpar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        lblInserir = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        lblConsultareEditar = new javax.swing.JLabel();
+        lblID = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
+        btnConsultar = new javax.swing.JButton();
+        lblNomeCE = new javax.swing.JLabel();
+        lblSexoCE = new javax.swing.JLabel();
+        lblIdiomaCE = new javax.swing.JLabel();
+        btnEditar = new javax.swing.JButton();
+        txtNomeCE = new javax.swing.JTextField();
+        txtSexoCE = new javax.swing.JTextField();
+        txtIdiomaCE = new javax.swing.JTextField();
+        lblIDImutável = new javax.swing.JLabel();
+        txtIDImutavel = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,7 +88,8 @@ public class JavaPainel extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("jButton1");
+        lblInserir.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        lblInserir.setText("Inserir Dados");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -88,6 +103,7 @@ public class JavaPainel extends javax.swing.JFrame {
                     .addComponent(lblIdioma))
                 .addGap(53, 53, 53)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblInserir)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(radMasculino)
                         .addGap(18, 18, 18)
@@ -97,16 +113,15 @@ public class JavaPainel extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnSalvar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnLimpar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
+                        .addComponent(btnLimpar))
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
+                .addComponent(lblInserir)
+                .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNome)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -120,37 +135,132 @@ public class JavaPainel extends javax.swing.JFrame {
                     .addComponent(lblIdioma)
                     .addComponent(cbbIdioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSalvar)
-                    .addComponent(btnLimpar)
-                    .addComponent(jButton1))
+                    .addComponent(btnLimpar))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
+
+        lblConsultareEditar.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        lblConsultareEditar.setText("Consultar e Editar Dados");
+
+        lblID.setText("ID:");
+
+        btnConsultar.setText("Consultar");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
+
+        lblNomeCE.setText("Nome:");
+
+        lblSexoCE.setText("Sexo:");
+
+        lblIdiomaCE.setText("Idioma:");
+
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+
+        txtSexoCE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSexoCEActionPerformed(evt);
+            }
+        });
+
+        lblIDImutável.setText("ID:");
+
+        txtIDImutavel.setEnabled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(btnEditar)
+                            .addComponent(lblConsultareEditar)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblID)
+                                .addGap(24, 24, 24)
+                                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(btnConsultar))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(213, 213, 213)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblSexoCE)
+                                    .addComponent(lblIdiomaCE))
+                                .addGap(13, 13, 13)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtIdiomaCE)
+                                    .addComponent(txtSexoCE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblNomeCE)
+                                    .addComponent(lblIDImutável))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(txtIDImutavel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(txtNomeCE))))
+                        .addGap(121, 121, 121)))
+                .addGap(103, 103, 103))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 233, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(lblConsultareEditar)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblID)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsultar))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblIDImutável)
+                    .addComponent(txtIDImutavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNomeCE)
+                    .addComponent(txtNomeCE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSexoCE)
+                    .addComponent(txtSexoCE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblIdiomaCE)
+                    .addComponent(txtIdiomaCE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(btnEditar)
+                .addGap(31, 31, 31))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -221,6 +331,59 @@ public class JavaPainel extends javax.swing.JFrame {
         limparFormulario();
     }//GEN-LAST:event_btnLimparActionPerformed
 
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        // TODO add your handling code here:
+        int idPessoa = Integer.parseInt(txtID.getText());
+        PessoaDAO pDAO = new PessoaDAO();
+        
+        Pessoa p = pDAO.getPessoa(idPessoa);
+        
+        if(p == null){
+            txtIDImutavel.setText("");
+            txtNomeCE.setText("");
+            txtSexoCE.setText("");
+            txtIdiomaCE.setText("");
+            JOptionPane.showMessageDialog(this, "Pessoa não encontrada!");
+        }
+        else{
+            txtIDImutavel.setText(""+p.getId());
+            txtNomeCE.setText(p.getNome());
+            txtSexoCE.setText(p.getSexo());
+            txtIdiomaCE.setText(p.getIdioma());
+        }
+    }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void txtSexoCEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSexoCEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSexoCEActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+        Pessoa p = new Pessoa();
+        if("".equals(txtID.getText())){
+            JOptionPane.showMessageDialog(null, "Insira o id", "Campo vazio", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        else{
+            p.setId(Integer.parseInt(txtID.getText()));
+        }
+        
+        p.setNome(txtNomeCE.getText());
+        p.setSexo(txtSexoCE.getText());
+        p.setIdioma(txtIdiomaCE.getText());
+        
+        PessoaDAO pDAO = new PessoaDAO();
+        
+        
+        
+        if(pDAO.editar(p)){
+            JOptionPane.showMessageDialog(this, "Edição feita com sucesso");
+            limparFormulario();
+        }else{
+            JOptionPane.showMessageDialog(this, "Pessoa não encontrada!");
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -257,18 +420,31 @@ public class JavaPainel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConsultar;
+    private javax.swing.JButton btnEditar;
     private javax.swing.ButtonGroup btnGrp_sexo;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cbbIdioma;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblConsultareEditar;
+    private javax.swing.JLabel lblID;
+    private javax.swing.JLabel lblIDImutável;
     private javax.swing.JLabel lblIdioma;
+    private javax.swing.JLabel lblIdiomaCE;
+    private javax.swing.JLabel lblInserir;
     private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblNomeCE;
     private javax.swing.JLabel lblSexo;
+    private javax.swing.JLabel lblSexoCE;
     private javax.swing.JRadioButton radFeminino;
     private javax.swing.JRadioButton radMasculino;
+    private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtIDImutavel;
+    private javax.swing.JTextField txtIdiomaCE;
     private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtNomeCE;
+    private javax.swing.JTextField txtSexoCE;
     // End of variables declaration//GEN-END:variables
 }

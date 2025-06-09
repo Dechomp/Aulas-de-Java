@@ -72,4 +72,27 @@ public class PessoaDAO {
             return null;
         }
     }
+    
+    
+    public boolean editar(Pessoa pessoa){
+        try{
+            String sql = "UPDATE pessoa set nome = ?, sexo = ?, idioma = ? WHERE id = ?";
+        
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, pessoa.getNome());
+            stmt.setString(2, pessoa.getSexo());
+            stmt.setString(3, pessoa.getIdioma());
+            stmt.setInt(4, pessoa.getId());
+            stmt.execute();
+            
+            return true;
+        } catch(SQLException ex){
+            System.out.println("Erro ao atualizar pessoa: "+ ex.getMessage());
+            return false;
+        }
+
+        
+        
+        
+    }
 }
