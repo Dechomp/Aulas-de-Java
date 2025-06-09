@@ -31,7 +31,7 @@ public class PessoaDAO {
             stmt.setString(1, pessoa.getNome());
             stmt.setString(2, pessoa.getSexo());
             stmt.setString(3, pessoa.getIdioma());
-            
+                
             
             stmt.execute();
             
