@@ -79,6 +79,16 @@ public class JavaPainel extends javax.swing.JFrame {
         // TODO add your handling code here:
         Conexao c = new Conexao();
         c.getConexao();
+        
+        Pessoa p = new Pessoa();
+        p.setNome("Júlio");
+        p.setSexo("M");
+        p.setIdioma("Português");
+        
+        PessoaDAO pDAO= new PessoaDAO();
+        pDAO.inserir(p);
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
