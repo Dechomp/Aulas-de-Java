@@ -64,14 +64,14 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="radFeminino" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="txtNome" min="-2" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="cbbIdioma" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnSalvar" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="txtNome" alignment="0" min="-2" pref="313" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="715" max="32767" attributes="0"/>
+                  <EmptySpace pref="558" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

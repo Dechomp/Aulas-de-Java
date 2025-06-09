@@ -81,12 +81,12 @@ public class JavaPainel extends javax.swing.JFrame {
                         .addComponent(radMasculino)
                         .addGap(18, 18, 18)
                         .addComponent(radFeminino))
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(cbbIdioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnSalvar)))
-                .addContainerGap(715, Short.MAX_VALUE))
+                        .addComponent(btnSalvar))
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(558, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,6 +140,8 @@ public class JavaPainel extends javax.swing.JFrame {
         
         if("".equals(nome)){
             JOptionPane.showMessageDialog(null, "Digite um nome: ", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
             String sexo;
         
             if (radMasculino.isSelected()){
@@ -148,9 +150,12 @@ public class JavaPainel extends javax.swing.JFrame {
             else{
                 sexo = "F";
             }
+            JOptionPane.showMessageDialog(null,"Opção escolhida \nSexo: "+ sexo, "Aviso", JOptionPane.INFORMATION_MESSAGE);
 
             String idioma;
             idioma = (String) cbbIdioma.getSelectedItem();
+            
+            JOptionPane.showMessageDialog(null,"Opção escolhida\nIdioma: "+ idioma, "Aviso", JOptionPane.INFORMATION_MESSAGE);
 
             p.setNome(nome);
             p.setSexo(sexo);
@@ -158,6 +163,8 @@ public class JavaPainel extends javax.swing.JFrame {
 
             PessoaDAO pDAO= new PessoaDAO();
             pDAO.inserir(p);
+            
+            JOptionPane.showMessageDialog(null,"Inserção realizada com sucesso!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
         }
         
         
