@@ -67,7 +67,7 @@ public class CategoriaDAO implements ClasseDAO {
     }
     
     public ArrayList<Categoria> getCategoriasNome(){
-        String sql = "SELECT cat_nome FROM categoria";
+        String sql = "SELECT cat_id, cat_nome FROM categoria";
         
         try{
             PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -80,6 +80,7 @@ public class CategoriaDAO implements ClasseDAO {
             while(rs.next()){
                 rs.first();
                 
+                c.setId(rs.getInt("cat_id"));
                 c.setNome(rs.getString("cat_nome"));
                 
                 lista.add(c);
