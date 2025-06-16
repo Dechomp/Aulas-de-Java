@@ -35,7 +35,7 @@ public class ClienteDAO implements ClasseDAO{
             stmt.execute();
             
         } catch(SQLException ex){
-            System.out.println("Erro ao inserir pessoa: " + ex.getMessage());
+            System.out.println("Erro ao inserir cliente: " + ex.getMessage());
         }
     }
 

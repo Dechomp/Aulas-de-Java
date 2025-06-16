@@ -1,6 +1,7 @@
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /*
@@ -34,7 +35,57 @@ public class CategoriaDAO implements ClasseDAO {
             stmt.execute();
             
         } catch(SQLException ex){
-            System.out.println("Erro ao inserir pessoa: " + ex.getMessage());
+            System.out.println("Erro ao inserir categoria: " + ex.getMessage());
+        }
+    }
+    
+    public Categoria getCategoria(int id){
+        String sql = "SELECT * FROM categoria where cat_id = ?";
+        
+        try{
+            PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            
+
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            Categoria c = new Categoria("", "");
+            
+            rs.first();
+            
+            c.setId(id);
+            c.setId(rs.getInt("cat_id"));
+            c.setNome(rs.getString("cat_nome"));
+            c.setDescricao(rs.getString("cat_descricao"));
+            
+            
+            return c;
+        }catch (SQLException ex){
+            System.out.println("Erro ao consultar categoria: "+ ex.getMessage());
+            return null;
+        }
+    }
+    
+    public Categoria getCategoriaNome(int id){
+        String sql = "SELECT cat_nome FROM categoria where cat_id = ?";
+        
+        try{
+            PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            
+
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            Categoria c = new Categoria("", "");
+            
+            rs.first();
+            
+            c.setId(id);
+            c.setNome(rs.getString("cat_nome"));
+            
+            
+            return c;
+        }catch (SQLException ex){
+            System.out.println("Erro ao consultar categoria: "+ ex.getMessage());
+            return null;
         }
     }
 
