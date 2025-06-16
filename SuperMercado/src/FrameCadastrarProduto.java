@@ -1,10 +1,11 @@
+
+import javax.swing.ComboBoxModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Frames;
-import ClassesDAO.CategoriaDAO;
 /**
  *
  * @author 2830482321036
@@ -16,6 +17,11 @@ public class FrameCadastrarProduto extends javax.swing.JFrame {
      */
     public FrameCadastrarProduto() {
         initComponents();
+        CategoriaDAO cDAO = new CategoriaDAO();
+        
+        
+        cobCadCategoria.setModel((ComboBoxModel<String>) cDAO.getCategoriasNome());
+
     }
 
     /**
@@ -52,8 +58,6 @@ public class FrameCadastrarProduto extends javax.swing.JFrame {
         lblCadCodigoBarras.setText("Código de Barras:");
 
         lblCadCategoria.setText("Categoria:");
-
-        cobCadCategoria.setModel(cDAO.getCategoriasNome());
 
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -154,8 +158,7 @@ public class FrameCadastrarProduto extends javax.swing.JFrame {
         String nome = txtCadNome.getText();
         float preco = Float.parseFloat(txtCadPreco.getText());
         String codigoBarras = txtCadCodigoBarras.getText();
-        CategoriaDAO cDAO = new CategoriaDAO();
-
+        
 // int idCategoria = 
         
         
