@@ -27,156 +27,143 @@ public class FrameInicial extends javax.swing.JFrame {
     private void initComponents() {
 
         javaMenu = new javax.swing.JMenu();
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        jPanel1 = new javax.swing.JPanel();
+        painelPrincipal = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem4 = new javax.swing.JRadioButtonMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jRadioButtonMenuItem5 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem6 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem7 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem8 = new javax.swing.JRadioButtonMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jRadioButtonMenuItem9 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem10 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem11 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem12 = new javax.swing.JRadioButtonMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jRadioButtonMenuItem13 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem14 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem15 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem16 = new javax.swing.JRadioButtonMenuItem();
+        menuCadastrar = new javax.swing.JMenu();
+        radCadCliente = new javax.swing.JRadioButtonMenuItem();
+        radCadCategoria = new javax.swing.JRadioButtonMenuItem();
+        radCadProduto = new javax.swing.JRadioButtonMenuItem();
+        radCadFornecedor = new javax.swing.JRadioButtonMenuItem();
+        menuExibir = new javax.swing.JMenu();
+        radExiCliente = new javax.swing.JRadioButtonMenuItem();
+        radExiCategoria = new javax.swing.JRadioButtonMenuItem();
+        radExiProduto = new javax.swing.JRadioButtonMenuItem();
+        radExiFornecedor = new javax.swing.JRadioButtonMenuItem();
+        menuAtualizar = new javax.swing.JMenu();
+        radAtuaCliente = new javax.swing.JRadioButtonMenuItem();
+        radAtuaCategoria = new javax.swing.JRadioButtonMenuItem();
+        radAtuaProduto = new javax.swing.JRadioButtonMenuItem();
+        radAtuaFornecedor = new javax.swing.JRadioButtonMenuItem();
+        menuDeletar = new javax.swing.JMenu();
+        radDelCliente = new javax.swing.JRadioButtonMenuItem();
+        radDelCategoria = new javax.swing.JRadioButtonMenuItem();
+        radDelProduto = new javax.swing.JRadioButtonMenuItem();
+        radDelFornecedor = new javax.swing.JRadioButtonMenuItem();
 
         javaMenu.setText("jMenu1");
 
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout painelPrincipalLayout = new javax.swing.GroupLayout(painelPrincipal);
+        painelPrincipal.setLayout(painelPrincipalLayout);
+        painelPrincipalLayout.setHorizontalGroup(
+            painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 690, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        painelPrincipalLayout.setVerticalGroup(
+            painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 434, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("File");
+        menuCadastrar.setText("Cadastrar");
 
-        jMenuItem1.setText("jMenuItem1");
-        jMenu1.add(jMenuItem1);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Cadastrar");
-
-        jRadioButtonMenuItem1.setSelected(true);
-        jRadioButtonMenuItem1.setText("Cliente");
-        jRadioButtonMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        radCadCliente.setSelected(true);
+        radCadCliente.setText("Cliente");
+        radCadCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonMenuItem1ActionPerformed(evt);
+                radCadClienteActionPerformed(evt);
             }
         });
-        jMenu2.add(jRadioButtonMenuItem1);
+        menuCadastrar.add(radCadCliente);
 
-        jRadioButtonMenuItem2.setSelected(true);
-        jRadioButtonMenuItem2.setText("Categoria");
-        jMenu2.add(jRadioButtonMenuItem2);
+        radCadCategoria.setSelected(true);
+        radCadCategoria.setText("Categoria");
+        menuCadastrar.add(radCadCategoria);
 
-        jRadioButtonMenuItem3.setSelected(true);
-        jRadioButtonMenuItem3.setText("Produto");
-        jMenu2.add(jRadioButtonMenuItem3);
+        radCadProduto.setSelected(true);
+        radCadProduto.setText("Produto");
+        menuCadastrar.add(radCadProduto);
 
-        jRadioButtonMenuItem4.setSelected(true);
-        jRadioButtonMenuItem4.setText("Fornecedor");
-        jMenu2.add(jRadioButtonMenuItem4);
+        radCadFornecedor.setSelected(true);
+        radCadFornecedor.setText("Fornecedor");
+        menuCadastrar.add(radCadFornecedor);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(menuCadastrar);
 
-        jMenu3.setText("Exibir");
+        menuExibir.setText("Exibir");
 
-        jRadioButtonMenuItem5.setSelected(true);
-        jRadioButtonMenuItem5.setText("Cliente");
-        jRadioButtonMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        radExiCliente.setSelected(true);
+        radExiCliente.setText("Cliente");
+        radExiCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonMenuItem5ActionPerformed(evt);
+                radExiClienteActionPerformed(evt);
             }
         });
-        jMenu3.add(jRadioButtonMenuItem5);
+        menuExibir.add(radExiCliente);
 
-        jRadioButtonMenuItem6.setSelected(true);
-        jRadioButtonMenuItem6.setText("Fornecedor");
-        jMenu3.add(jRadioButtonMenuItem6);
+        radExiCategoria.setSelected(true);
+        radExiCategoria.setText("Categoria");
+        menuExibir.add(radExiCategoria);
 
-        jRadioButtonMenuItem7.setSelected(true);
-        jRadioButtonMenuItem7.setText("Produto");
-        jMenu3.add(jRadioButtonMenuItem7);
+        radExiProduto.setSelected(true);
+        radExiProduto.setText("Produto");
+        menuExibir.add(radExiProduto);
 
-        jRadioButtonMenuItem8.setSelected(true);
-        jRadioButtonMenuItem8.setText("Categoria");
-        jMenu3.add(jRadioButtonMenuItem8);
+        radExiFornecedor.setSelected(true);
+        radExiFornecedor.setText("Fornecedor");
+        menuExibir.add(radExiFornecedor);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(menuExibir);
 
-        jMenu4.setText("Atualizar");
+        menuAtualizar.setText("Atualizar");
 
-        jRadioButtonMenuItem9.setSelected(true);
-        jRadioButtonMenuItem9.setText("Cliente");
-        jRadioButtonMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+        radAtuaCliente.setSelected(true);
+        radAtuaCliente.setText("Cliente");
+        radAtuaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonMenuItem9ActionPerformed(evt);
+                radAtuaClienteActionPerformed(evt);
             }
         });
-        jMenu4.add(jRadioButtonMenuItem9);
+        menuAtualizar.add(radAtuaCliente);
 
-        jRadioButtonMenuItem10.setSelected(true);
-        jRadioButtonMenuItem10.setText("Fornecedor");
-        jMenu4.add(jRadioButtonMenuItem10);
+        radAtuaCategoria.setSelected(true);
+        radAtuaCategoria.setText("Categoria");
+        menuAtualizar.add(radAtuaCategoria);
 
-        jRadioButtonMenuItem11.setSelected(true);
-        jRadioButtonMenuItem11.setText("Produto");
-        jMenu4.add(jRadioButtonMenuItem11);
+        radAtuaProduto.setSelected(true);
+        radAtuaProduto.setText("Produto");
+        menuAtualizar.add(radAtuaProduto);
 
-        jRadioButtonMenuItem12.setSelected(true);
-        jRadioButtonMenuItem12.setText("Categoria");
-        jMenu4.add(jRadioButtonMenuItem12);
+        radAtuaFornecedor.setSelected(true);
+        radAtuaFornecedor.setText("Fornecedor");
+        menuAtualizar.add(radAtuaFornecedor);
 
-        jMenuBar1.add(jMenu4);
+        jMenuBar1.add(menuAtualizar);
 
-        jMenu5.setText("Deletar");
+        menuDeletar.setText("Deletar");
 
-        jRadioButtonMenuItem13.setSelected(true);
-        jRadioButtonMenuItem13.setText("Cliente");
-        jRadioButtonMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+        radDelCliente.setSelected(true);
+        radDelCliente.setText("Cliente");
+        radDelCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonMenuItem13ActionPerformed(evt);
+                radDelClienteActionPerformed(evt);
             }
         });
-        jMenu5.add(jRadioButtonMenuItem13);
+        menuDeletar.add(radDelCliente);
 
-        jRadioButtonMenuItem14.setSelected(true);
-        jRadioButtonMenuItem14.setText("Fornecedor");
-        jMenu5.add(jRadioButtonMenuItem14);
+        radDelCategoria.setSelected(true);
+        radDelCategoria.setText("Categoria");
+        menuDeletar.add(radDelCategoria);
 
-        jRadioButtonMenuItem15.setSelected(true);
-        jRadioButtonMenuItem15.setText("Produto");
-        jMenu5.add(jRadioButtonMenuItem15);
+        radDelProduto.setSelected(true);
+        radDelProduto.setText("Produto");
+        menuDeletar.add(radDelProduto);
 
-        jRadioButtonMenuItem16.setSelected(true);
-        jRadioButtonMenuItem16.setText("Categoria");
-        jMenu5.add(jRadioButtonMenuItem16);
+        radDelFornecedor.setSelected(true);
+        radDelFornecedor.setText("Fornecedor");
+        menuDeletar.add(radDelFornecedor);
 
-        jMenuBar1.add(jMenu5);
+        jMenuBar1.add(menuDeletar);
 
         setJMenuBar(jMenuBar1);
 
@@ -185,34 +172,37 @@ public class FrameInicial extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(painelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(painelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButtonMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem1ActionPerformed
+    private void radCadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radCadClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonMenuItem1ActionPerformed
+        FrameCadastrarCliente frCliente = new FrameCadastrarCliente();
+        frCliente.show();
+        //this.visible(false);
+    }//GEN-LAST:event_radCadClienteActionPerformed
 
-    private void jRadioButtonMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem5ActionPerformed
+    private void radExiClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radExiClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonMenuItem5ActionPerformed
+    }//GEN-LAST:event_radExiClienteActionPerformed
 
-    private void jRadioButtonMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem9ActionPerformed
+    private void radAtuaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radAtuaClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonMenuItem9ActionPerformed
+    }//GEN-LAST:event_radAtuaClienteActionPerformed
 
-    private void jRadioButtonMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem13ActionPerformed
+    private void radDelClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radDelClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonMenuItem13ActionPerformed
+    }//GEN-LAST:event_radDelClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,31 +240,28 @@ public class FrameInicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem10;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem11;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem12;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem13;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem14;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem15;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem16;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem3;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem4;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem5;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem6;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem7;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem8;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem9;
     private javax.swing.JMenu javaMenu;
+    private javax.swing.JMenu menuAtualizar;
+    private javax.swing.JMenu menuCadastrar;
+    private javax.swing.JMenu menuDeletar;
+    private javax.swing.JMenu menuExibir;
+    private javax.swing.JPanel painelPrincipal;
+    private javax.swing.JRadioButtonMenuItem radAtuaCategoria;
+    private javax.swing.JRadioButtonMenuItem radAtuaCliente;
+    private javax.swing.JRadioButtonMenuItem radAtuaFornecedor;
+    private javax.swing.JRadioButtonMenuItem radAtuaProduto;
+    private javax.swing.JRadioButtonMenuItem radCadCategoria;
+    private javax.swing.JRadioButtonMenuItem radCadCliente;
+    private javax.swing.JRadioButtonMenuItem radCadFornecedor;
+    private javax.swing.JRadioButtonMenuItem radCadProduto;
+    private javax.swing.JRadioButtonMenuItem radDelCategoria;
+    private javax.swing.JRadioButtonMenuItem radDelCliente;
+    private javax.swing.JRadioButtonMenuItem radDelFornecedor;
+    private javax.swing.JRadioButtonMenuItem radDelProduto;
+    private javax.swing.JRadioButtonMenuItem radExiCategoria;
+    private javax.swing.JRadioButtonMenuItem radExiCliente;
+    private javax.swing.JRadioButtonMenuItem radExiFornecedor;
+    private javax.swing.JRadioButtonMenuItem radExiProduto;
     // End of variables declaration//GEN-END:variables
 }
