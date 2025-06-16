@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -65,24 +66,26 @@ public class CategoriaDAO implements ClasseDAO {
         }
     }
     
-    public Categoria getCategoriaNome(int id){
-        String sql = "SELECT cat_nome FROM categoria where cat_id = ?";
+    public ArrayList<Categoria> getCategoriasNome(){
+        String sql = "SELECT cat_nome FROM categoria";
         
         try{
             PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             
-
-            stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
             Categoria c = new Categoria("", "");
+            ArrayList<Categoria> lista = new ArrayList<Categoria>();
             
-            rs.first();
+            ResultSet rs = stmt.executeQuery();
             
-            c.setId(id);
-            c.setNome(rs.getString("cat_nome"));
+            while(rs.next()){
+                rs.first();
+                
+                c.setNome(rs.getString("cat_nome"));
+                
+                lista.add(c);
+            }
             
-            
-            return c;
+            return lista;
         }catch (SQLException ex){
             System.out.println("Erro ao consultar categoria: "+ ex.getMessage());
             return null;
