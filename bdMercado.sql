@@ -29,3 +29,7 @@ create table cliente(
     cli_email varchar(50) not null unique
 );
 
+select * from cliente;
+select * from categoria;
+select * from produto;
+select * from fornecedor;

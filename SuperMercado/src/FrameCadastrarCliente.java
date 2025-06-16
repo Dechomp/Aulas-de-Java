@@ -1,4 +1,7 @@
 
+import javax.swing.JOptionPane;
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -60,6 +63,11 @@ public class FrameCadastrarCliente extends javax.swing.JFrame {
         });
 
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout painelCadClienteLayout = new javax.swing.GroupLayout(painelCadCliente);
         painelCadCliente.setLayout(painelCadClienteLayout);
@@ -130,6 +138,25 @@ public class FrameCadastrarCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        // TODO add your handling code here:
+        String CPF = txtCadCPF.getText();
+        String nome = txtCadNome.getText();
+        String email = txtCadEmail.getText();
+        
+        
+        if(txtCadCPF.getText().equals("") || txtCadNome.getText().equals("") || txtCadEmail.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Insira um valor valido em todos os campos", "Campo vazio", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            Cliente c = new Cliente(CPF, nome, email);
+            ClienteDAO cDAO = new ClienteDAO();
+            
+            cDAO.inserir(c);
+        }
+
+    }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
