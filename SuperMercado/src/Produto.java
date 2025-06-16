@@ -16,8 +16,7 @@ public class Produto {
     private String codidgoBarras;
     private int idCategoria;
 
-    public Produto(int id, String nome, float preco, String codidgoBarras, int idCategoria) {
-        this.id = id;
+    public Produto(String nome, float preco, String codidgoBarras, int idCategoria) {
         this.nome = nome;
         this.preco = preco;
         this.codidgoBarras = codidgoBarras;

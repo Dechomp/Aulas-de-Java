@@ -78,6 +78,11 @@ public class FrameInicial extends javax.swing.JFrame {
 
         radCadCategoria.setSelected(true);
         radCadCategoria.setText("Categoria");
+        radCadCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radCadCategoriaActionPerformed(evt);
+            }
+        });
         menuCadastrar.add(radCadCategoria);
 
         radCadProduto.setSelected(true);
@@ -187,8 +192,8 @@ public class FrameInicial extends javax.swing.JFrame {
 
     private void radCadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radCadClienteActionPerformed
         // TODO add your handling code here:
-        FrameCadastrarCliente frCliente = new FrameCadastrarCliente();
-        frCliente.show();
+        FrameCadastrarCliente frCadCliente = new FrameCadastrarCliente();
+        frCadCliente.show();
         //this.visible(false);
     }//GEN-LAST:event_radCadClienteActionPerformed
 
@@ -203,6 +208,12 @@ public class FrameInicial extends javax.swing.JFrame {
     private void radDelClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radDelClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_radDelClienteActionPerformed
+
+    private void radCadCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radCadCategoriaActionPerformed
+        // TODO add your handling code here:
+        FrameCadastrarCategoria frCadCategoria = new FrameCadastrarCategoria();
+        frCadCategoria.show();
+    }//GEN-LAST:event_radCadCategoriaActionPerformed
 
     /**
      * @param args the command line arguments

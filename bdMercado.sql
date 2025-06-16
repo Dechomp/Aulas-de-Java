@@ -5,8 +5,14 @@ use bdMercado;
 create table categoria(
 	cat_id int not null auto_increment primary key,
 	cat_nome varchar(30) not null,
-	car_descricao varchar(100) 
+	cat_descricao varchar(255) 
 );
+
+-- alter table categoria
+-- DROP car_descricao;
+
+-- alter table categoria
+-- add cat_descricao varchar(255);
 
 create table produto(
 	pro_id int not null auto_increment primary key,
