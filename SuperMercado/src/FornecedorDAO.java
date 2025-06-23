@@ -4,7 +4,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashSet;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,86 +16,85 @@ import java.util.HashSet;
  * @author Júlio de Souza
  * @since 23/06/2025;
  */
-public class ProdutoDAO implements ClasseDAO{
+public class FornecedorDAO implements ClasseDAO {
     private Conexao conexao;
     private Connection conn;
     
-    public ProdutoDAO(){
+    public FornecedorDAO(){
         this.conexao = new Conexao();
         this.conn =  this.conexao.getConexao();
     }
-    public void inserir (Produto produto){
-        String sql = "INSERT INTO produto (pro_nome, pro_preco, pro_codigoBarras, cat_id) VALUES (?,?,?,?);";
+    
+    public void inserir (Fornecedor fornecedor){
+        String sql = "INSERT INTO fornecedor (for_CNPJ, for_nome, for_nomeFantasia) VALUES (?,?,?);";
         
         try{
             PreparedStatement stmt = this.conn.prepareStatement(sql);
-            stmt.setString(1, produto.getNome());
-            stmt.setFloat(2, produto.getPreco());
-            stmt.setString(3, produto.getCodidgoBarras());
-            stmt.setInt(4, produto.getIdCategoria());
+            stmt.setString(1, fornecedor.getCNPJ());
+            stmt.setString(2, fornecedor.getNome());
+            stmt.setString(3, fornecedor.getNomeFantasia());            
+            
             
             stmt.execute();
             
         } catch(SQLException ex){
-            System.out.println("Erro ao inserir produto: " + ex.getMessage());
+            System.out.println("Erro ao inserir fornecedor: " + ex.getMessage());
         }
     }
     
-    public Produto getProduto(int id){
-        String sql = "SELECT pro_nome, pro_preco, pro_codigoBarras, cat_id FROM produto where pro_id = ?";
+    public Fornecedor getFornecedor(String CNPJ){
+        String sql = "SELECT for_nome, for_nomeFantasia FROM fornecedor where for_CNPJ = ?";
         
         try{
             PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             
 
-            stmt.setInt(1, id);
+            stmt.setString(1, CNPJ);
             ResultSet rs = stmt.executeQuery();
-            Produto p = new Produto("", 0.0f, "", 0);
+            Fornecedor f = new Fornecedor("", "", "");
             
             rs.first();
             
-            p.setId(id);
-            p.setNome(rs.getString("pro_nome"));
-            p.setPreco(rs.getFloat("pro_preco"));
-            p.setCodidgoBarras(rs.getString("pro_codigoBarras"));
-            p.setIdCategoria(rs.getInt("cat_id"));
+            f.setCNPJ(CNPJ);
+            f.setNome(rs.getString("for_nome"));
+            f.setNomeFantasia(rs.getString("for_nomeFantasia"));
             
             
             
-            return p;
+            return f;
         }catch (SQLException ex){
-            System.out.println("Erro ao consultar produto: "+ ex.getMessage());
+            System.out.println("Erro ao consultar fornecedor: "+ ex.getMessage());
             return null;
         }
     }
     
-    public ArrayList<Produto> getProdutos(){
-        String sql = "SELECT pro_id, pro_nome FROM produto ";
+    public ArrayList<Fornecedor> getFornecedores(){
+        String sql = "SELECT for_CNPJ, for_nomeFantasia FROM fornecedor ";
         
         try{
             PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             
-            ArrayList<Produto> lista = new ArrayList<>();
+            ArrayList<Fornecedor> lista = new ArrayList<>();
             
             ResultSet rs = stmt.executeQuery();
             
             rs.first();
+            
             do{
-                Produto p = new Produto("", 0.0f, "", 0);
-                p.setId(rs.getInt("pro_id"));
-                p.setNome(rs.getString("pro_nome"));
-                
-                lista.add(p);
+                Fornecedor f = new Fornecedor("", "", "");
+                f.setCNPJ(rs.getString("for_CNPJ"));
+                f.setNomeFantasia(rs.getString("for_nomeFantasia"));                
+                lista.add(f);
             }while(rs.next());
             
             
             return lista;
         }catch (SQLException ex){
-            System.out.println("Erro ao consultar produto: "+ ex.getMessage());
+            System.out.println("Erro ao consultar fornecedor: "+ ex.getMessage());
             return null;
         }
     }
-
+    
     @Override
     public boolean atualizar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

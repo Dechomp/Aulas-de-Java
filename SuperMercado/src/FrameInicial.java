@@ -96,6 +96,11 @@ public class FrameInicial extends javax.swing.JFrame {
 
         radCadFornecedor.setSelected(true);
         radCadFornecedor.setText("Fornecedor");
+        radCadFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radCadFornecedorActionPerformed(evt);
+            }
+        });
         menuCadastrar.add(radCadFornecedor);
 
         jMenuBar1.add(menuCadastrar);
@@ -131,6 +136,11 @@ public class FrameInicial extends javax.swing.JFrame {
 
         radExiFornecedor.setSelected(true);
         radExiFornecedor.setText("Fornecedor");
+        radExiFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radExiFornecedorActionPerformed(evt);
+            }
+        });
         menuExibir.add(radExiFornecedor);
 
         jMenuBar1.add(menuExibir);
@@ -247,6 +257,18 @@ public class FrameInicial extends javax.swing.JFrame {
         FrameExibirProduto frExiProduto = new FrameExibirProduto();
         frExiProduto.show();
     }//GEN-LAST:event_radExiProdutoActionPerformed
+
+    private void radCadFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radCadFornecedorActionPerformed
+        // TODO add your handling code here:
+        FrameCadastrarFornecedor frCadFornecedor = new FrameCadastrarFornecedor();
+        frCadFornecedor.show();
+    }//GEN-LAST:event_radCadFornecedorActionPerformed
+
+    private void radExiFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radExiFornecedorActionPerformed
+        // TODO add your handling code here:
+        FrameExibirFornecedor frExiFornecedor = new FrameExibirFornecedor();
+        frExiFornecedor.show();
+    }//GEN-LAST:event_radExiFornecedorActionPerformed
 
     /**
      * @param args the command line arguments

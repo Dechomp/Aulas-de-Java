@@ -23,8 +23,8 @@ create table produto(
     FOREIGN KEY (cat_id) REFERENCES categoria(cat_id)
 );
 
-create table fornecedores(
-	for_CPNJ varchar(50) not null primary key,
+create table fornecedor(
+	for_CNPJ varchar(50) not null primary key,
     for_nome varchar(50) not null unique,
     for_nomeFantasia varchar(50) not null
 );
@@ -35,7 +35,7 @@ create table cliente(
     cli_email varchar(50) not null unique
 );
 
-drop table categoria;
+drop table fornecedor;
 
 select * from cliente;
 select * from categoria;

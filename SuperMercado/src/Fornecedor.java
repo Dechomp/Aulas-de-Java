@@ -10,14 +10,30 @@
  * @since 16/06/2025;
  */
 public class Fornecedor {
-    private int CNPJ;
+    private String CNPJ;
     private String nome;
     private String nomeFantasia;
 
-    public Fornecedor(int CNPJ, String nome, String nomeFantasia) {
+    public Fornecedor(String CNPJ, String nome, String nomeFantasia) {
         this.CNPJ = CNPJ;
         this.nome = nome;
         this.nomeFantasia = nomeFantasia;
+    }
+
+    public String getCNPJ() {
+        return CNPJ;
+    }
+
+    public void setCNPJ(String CNPJ) {
+        this.CNPJ = CNPJ;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getNomeFantasia() {
@@ -28,20 +44,10 @@ public class Fornecedor {
         this.nomeFantasia = nomeFantasia;
     }
 
-    public int getCNPJ() {
-        return CNPJ;
-    }
-
-    public void setCNPJ(int CNPJ) {
-        this.CNPJ = CNPJ;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+    
+    
+    public String toString(){
+        return this.CNPJ+" - "+this.nome;
     }
     
     
