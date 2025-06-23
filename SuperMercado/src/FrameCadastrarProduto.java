@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import javax.swing.ComboBoxModel;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,7 +25,6 @@ public class FrameCadastrarProduto extends javax.swing.JFrame {
         //cobCadCategoria.setModel((ComboBoxModel<String>) cDAO.getCategoriasNome());
 
     }
-    int listaID[];
     
     public void preencherComboProdutos(){
         CategoriaDAO cDAO = new CategoriaDAO();
@@ -32,10 +32,8 @@ public class FrameCadastrarProduto extends javax.swing.JFrame {
         ArrayList<Categoria> lista = cDAO.getCategoriasNome();
         
         int i = 0;
-        for(Categoria p: lista){
-            cobCadCategoria.addItem(p);
-            listaID[i] = p.getId();
-            i++;
+        for(Categoria c: lista){
+            cobCadCategoria.addItem(c);
         }
     }
 
@@ -171,9 +169,31 @@ public class FrameCadastrarProduto extends javax.swing.JFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
         String nome = txtCadNome.getText();
+        if(txtCadPreco.getText().contains(",")){
+            txtCadPreco.setText(txtCadPreco.getText().replace(",", "."));
+        }
         float preco = Float.parseFloat(txtCadPreco.getText());
         String codigoBarras = txtCadCodigoBarras.getText();
-        ComboBoxModel categoria = cobCadCategoria.getModel();
+        
+        //Pegando o ID
+        Categoria c = (Categoria) cobCadCategoria.getSelectedItem();
+        
+        int idCategoria = c.getId();
+        
+        if (nome.equals("") || preco <= 0 || codigoBarras.equals("")){
+            JOptionPane.showMessageDialog(null, "Há campos vazios, por favor corrija", "Campo vazio", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        else{
+            
+            Produto p = new Produto(nome, preco, codigoBarras, idCategoria);
+            ProdutoDAO pDAO = new ProdutoDAO();
+            pDAO.inserir(p);
+            
+            txtCadNome.setText("");
+            txtCadPreco.setText("");
+            txtCadCodigoBarras.setText("");
+        }
         
         
         

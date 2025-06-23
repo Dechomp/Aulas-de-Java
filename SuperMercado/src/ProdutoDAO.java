@@ -25,18 +25,20 @@ public class ProdutoDAO implements ClasseDAO{
         this.conn =  this.conexao.getConexao();
     }
     //Alterar
-    public void inserir (){
-        String sql = "INSERT INTO categoria (cat_nome, cat_descricao) VALUES (?,?);";
+    public void inserir (Produto produto){
+        String sql = "INSERT INTO produto (pro_nome, pro_preco, pro_codigoBarras, cat_id) VALUES (?,?,?,?);";
         
         try{
             PreparedStatement stmt = this.conn.prepareStatement(sql);
-            //stmt.setString(1, categoria.getNome());
-            //stmt.setString(2, categoria.getDescricao());
+            stmt.setString(1, produto.getNome());
+            stmt.setFloat(2, produto.getPreco());
+            stmt.setString(3, produto.getCodidgoBarras());
+            stmt.setInt(4, produto.getIdCategoria());
             
             stmt.execute();
             
         } catch(SQLException ex){
-            System.out.println("Erro ao inserir categoria: " + ex.getMessage());
+            System.out.println("Erro ao inserir produto: " + ex.getMessage());
         }
     }
     
