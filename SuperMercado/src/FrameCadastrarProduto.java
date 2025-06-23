@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import javax.swing.ComboBoxModel;
 
 /*
@@ -17,11 +18,25 @@ public class FrameCadastrarProduto extends javax.swing.JFrame {
      */
     public FrameCadastrarProduto() {
         initComponents();
+        
+        preencherComboProdutos();
+        
+        //cobCadCategoria.setModel((ComboBoxModel<String>) cDAO.getCategoriasNome());
+
+    }
+    int listaID[];
+    
+    public void preencherComboProdutos(){
         CategoriaDAO cDAO = new CategoriaDAO();
         
+        ArrayList<Categoria> lista = cDAO.getCategoriasNome();
         
-        cobCadCategoria.setModel((ComboBoxModel<String>) cDAO.getCategoriasNome());
-
+        int i = 0;
+        for(Categoria p: lista){
+            cobCadCategoria.addItem(p);
+            listaID[i] = p.getId();
+            i++;
+        }
     }
 
     /**
@@ -42,7 +57,7 @@ public class FrameCadastrarProduto extends javax.swing.JFrame {
         lblCadCodigoBarras = new javax.swing.JLabel();
         txtCadCodigoBarras = new javax.swing.JTextField();
         lblCadCategoria = new javax.swing.JLabel();
-        cobCadCategoria = new javax.swing.JComboBox<>();
+        cobCadCategoria = new javax.swing.JComboBox();
         btnVoltar = new javax.swing.JButton();
         btnCadastrar = new javax.swing.JButton();
 
@@ -158,8 +173,9 @@ public class FrameCadastrarProduto extends javax.swing.JFrame {
         String nome = txtCadNome.getText();
         float preco = Float.parseFloat(txtCadPreco.getText());
         String codigoBarras = txtCadCodigoBarras.getText();
+        ComboBoxModel categoria = cobCadCategoria.getModel();
         
-// int idCategoria = 
+        
         
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
@@ -202,7 +218,7 @@ public class FrameCadastrarProduto extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JComboBox<String> cobCadCategoria;
+    private javax.swing.JComboBox cobCadCategoria;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCadCategoria;
     private javax.swing.JLabel lblCadCodigoBarras;

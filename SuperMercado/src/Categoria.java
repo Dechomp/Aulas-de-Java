@@ -43,5 +43,9 @@ public class Categoria {
         this.descricao = descricao;
     }
     
+    public String toString(){
+        return this.id+" - "+this.nome;
+    }
+    
     
 }

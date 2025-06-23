@@ -35,6 +35,8 @@ create table cliente(
     cli_email varchar(50) not null unique
 );
 
+drop table categoria;
+
 select * from cliente;
 select * from categoria;
 select * from produto;

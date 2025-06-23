@@ -14,24 +14,24 @@ import java.util.ArrayList;
 /**
  *
  * @author Júlio de Souza
- * @since 16/06/2025;
+ * @since 23/06/2025;
  */
-public class CategoriaDAO implements ClasseDAO {
+public class ProdutoDAO implements ClasseDAO{
     private Conexao conexao;
     private Connection conn;
     
-    public CategoriaDAO(){
+    public ProdutoDAO(){
         this.conexao = new Conexao();
         this.conn =  this.conexao.getConexao();
     }
-    
-    public void inserir (Categoria categoria){
+    //Alterar
+    public void inserir (){
         String sql = "INSERT INTO categoria (cat_nome, cat_descricao) VALUES (?,?);";
         
         try{
             PreparedStatement stmt = this.conn.prepareStatement(sql);
-            stmt.setString(1, categoria.getNome());
-            stmt.setString(2, categoria.getDescricao());
+            //stmt.setString(1, categoria.getNome());
+            //stmt.setString(2, categoria.getDescricao());
             
             stmt.execute();
             
@@ -67,7 +67,7 @@ public class CategoriaDAO implements ClasseDAO {
     }
     
     public ArrayList<Categoria> getCategoriasNome(){
-        String sql = "SELECT cat_id, cat_nome FROM categoria";
+        String sql = "SELECT cat_nome FROM categoria";
         
         try{
             PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -79,7 +79,6 @@ public class CategoriaDAO implements ClasseDAO {
             rs.first();
             do{
                 Categoria c = new Categoria("", "");
-                c.setId(rs.getInt("cat_id"));
                 c.setNome(rs.getString("cat_nome"));
                 
                 lista.add(c);

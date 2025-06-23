@@ -145,7 +145,8 @@ public class FrameCadastrarCategoria extends javax.swing.JFrame {
             CategoriaDAO cDAO = new CategoriaDAO();
             
             cDAO.inserir(c);
-            
+            txtCadNome.setText("");
+            txaCadDescricao.setText("");
             
         }
         

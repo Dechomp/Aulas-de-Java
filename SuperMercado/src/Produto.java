@@ -63,6 +63,10 @@ public class Produto {
         this.codidgoBarras = codidgoBarras;
     }
     
+    public String toString(){
+        return this.id+" - "+this.nome;
+    }
+    
     
     
     

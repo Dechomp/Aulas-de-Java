@@ -154,6 +154,9 @@ public class FrameCadastrarCliente extends javax.swing.JFrame {
             ClienteDAO cDAO = new ClienteDAO();
             
             cDAO.inserir(c);
+            txtCadCPF.setText("");
+            txtCadNome.setText("");
+            txtCadEmail.setText("");
         }
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
