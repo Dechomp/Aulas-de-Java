@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -42,8 +43,8 @@ public class ProdutoDAO implements ClasseDAO{
         }
     }
     
-    public Categoria getCategoria(int id){
-        String sql = "SELECT * FROM categoria where cat_id = ?";
+    public Produto getProduto(int id){
+        String sql = "SELECT pro_nome, pro_preco, pro_codigoBarras, cat_id FROM produto where pro_id = ?";
         
         try{
             PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -51,39 +52,42 @@ public class ProdutoDAO implements ClasseDAO{
 
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
-            Categoria c = new Categoria("", "");
+            Produto p = new Produto("", 0.0f, "", 0);
             
             rs.first();
             
-            c.setId(id);
-            c.setId(rs.getInt("cat_id"));
-            c.setNome(rs.getString("cat_nome"));
-            c.setDescricao(rs.getString("cat_descricao"));
+            p.setId(id);
+            p.setNome(rs.getString("pro_nome"));
+            p.setPreco(rs.getFloat("pro_preco"));
+            p.setCodidgoBarras(rs.getString("pro_codigoBarras"));
+            p.setIdCategoria(rs.getInt("cat_id"));
             
             
-            return c;
+            
+            return p;
         }catch (SQLException ex){
-            System.out.println("Erro ao consultar categoria: "+ ex.getMessage());
+            System.out.println("Erro ao consultar produto: "+ ex.getMessage());
             return null;
         }
     }
     
-    public ArrayList<Categoria> getCategoriasNome(){
-        String sql = "SELECT cat_nome FROM categoria";
+    public ArrayList<Produto> getProdutos(){
+        String sql = "SELECT pro_id, pro_nome FROM produto ";
         
         try{
             PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             
-            ArrayList<Categoria> lista = new ArrayList<>();
+            ArrayList<Produto> lista = new ArrayList<>();
             
             ResultSet rs = stmt.executeQuery();
             
             rs.first();
             do{
-                Categoria c = new Categoria("", "");
-                c.setNome(rs.getString("cat_nome"));
+                Produto p = new Produto("", 0.0f, "", 0);
+                p.setId(rs.getInt("pro_id"));
+                p.setNome(rs.getString("pro_nome"));
                 
-                lista.add(c);
+                lista.add(p);
             }while(rs.next());
             
             

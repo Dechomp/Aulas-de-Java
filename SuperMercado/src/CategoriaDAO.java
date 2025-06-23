@@ -66,7 +66,7 @@ public class CategoriaDAO implements ClasseDAO {
         }
     }
     
-    public ArrayList<Categoria> getCategoriasNome(){
+    public ArrayList<Categoria> getCategorias(){
         String sql = "SELECT cat_id, cat_nome FROM categoria";
         
         try{

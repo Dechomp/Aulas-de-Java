@@ -29,7 +29,7 @@ public class FrameCadastrarProduto extends javax.swing.JFrame {
     public void preencherComboProdutos(){
         CategoriaDAO cDAO = new CategoriaDAO();
         
-        ArrayList<Categoria> lista = cDAO.getCategoriasNome();
+        ArrayList<Categoria> lista = cDAO.getCategorias();
         
         int i = 0;
         for(Categoria c: lista){

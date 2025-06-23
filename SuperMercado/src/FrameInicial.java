@@ -122,6 +122,11 @@ public class FrameInicial extends javax.swing.JFrame {
 
         radExiProduto.setSelected(true);
         radExiProduto.setText("Produto");
+        radExiProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radExiProdutoActionPerformed(evt);
+            }
+        });
         menuExibir.add(radExiProduto);
 
         radExiFornecedor.setSelected(true);
@@ -236,6 +241,12 @@ public class FrameInicial extends javax.swing.JFrame {
         FrameCadastrarProduto frCadProduto = new FrameCadastrarProduto();
         frCadProduto.show();
     }//GEN-LAST:event_radCadProdutoActionPerformed
+
+    private void radExiProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radExiProdutoActionPerformed
+        // TODO add your handling code here:
+        FrameExibirProduto frExiProduto = new FrameExibirProduto();
+        frExiProduto.show();
+    }//GEN-LAST:event_radExiProdutoActionPerformed
 
     /**
      * @param args the command line arguments
