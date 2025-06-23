@@ -43,6 +43,8 @@ public class FrameExibirProduto extends javax.swing.JFrame {
         lblExiCategoria = new javax.swing.JLabel();
         txtExiCategoria = new javax.swing.JTextField();
         btnPesquisar = new javax.swing.JButton();
+        lblExiEstoque = new javax.swing.JLabel();
+        txtExiEstoque = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,6 +98,15 @@ public class FrameExibirProduto extends javax.swing.JFrame {
             }
         });
 
+        lblExiEstoque.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblExiEstoque.setText("Estoque:");
+
+        txtExiEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtExiEstoqueActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -103,8 +114,15 @@ public class FrameExibirProduto extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(297, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.CENTER, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnVoltar, javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(btnPesquisar, javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(lblExiProduto, javax.swing.GroupLayout.Alignment.CENTER))
+                        .addGap(246, 246, 246))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblExiEstoque)
                             .addComponent(lblExiCategoria)
                             .addComponent(lblExiCodigoBarras)
                             .addComponent(lblExiPreco)
@@ -112,19 +130,17 @@ public class FrameExibirProduto extends javax.swing.JFrame {
                             .addComponent(lblExiId))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtExiCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtExiCodigoBarras, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtExiPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtExiNome, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtExiId, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtExiEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtExiCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(195, 195, 195))
-                    .addGroup(javax.swing.GroupLayout.Alignment.CENTER, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(145, 145, 145)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.CENTER, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                .addComponent(btnVoltar)
-                                .addComponent(btnPesquisar))
-                            .addComponent(lblExiProduto, javax.swing.GroupLayout.Alignment.CENTER))
-                        .addGap(246, 246, 246))))
+                            .addComponent(txtExiId, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtExiNome, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtExiPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtExiCodigoBarras, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,9 +165,13 @@ public class FrameExibirProduto extends javax.swing.JFrame {
                     .addComponent(txtExiCodigoBarras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblExiEstoque)
+                    .addComponent(txtExiEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblExiCategoria)
                     .addComponent(txtExiCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(btnPesquisar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVoltar)
@@ -218,10 +238,15 @@ public class FrameExibirProduto extends javax.swing.JFrame {
             txtExiNome.setText(p.getNome());
             txtExiPreco.setText("" + p.getPreco());
             txtExiCodigoBarras.setText("" + p.getCodidgoBarras());
+            txtExiEstoque.setText(""+p.getEstoque());
             txtExiCategoria.setText(c.getNome());
             
         }
     }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void txtExiEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtExiEstoqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtExiEstoqueActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,12 +289,14 @@ public class FrameExibirProduto extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblExiCategoria;
     private javax.swing.JLabel lblExiCodigoBarras;
+    private javax.swing.JLabel lblExiEstoque;
     private javax.swing.JLabel lblExiId;
     private javax.swing.JLabel lblExiNome;
     private javax.swing.JLabel lblExiPreco;
     private javax.swing.JLabel lblExiProduto;
     private javax.swing.JTextField txtExiCategoria;
     private javax.swing.JTextField txtExiCodigoBarras;
+    private javax.swing.JTextField txtExiEstoque;
     private javax.swing.JTextField txtExiId;
     private javax.swing.JTextField txtExiNome;
     private javax.swing.JTextField txtExiPreco;

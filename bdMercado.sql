@@ -19,6 +19,7 @@ create table produto(
     pro_nome varchar(30) not null,
     pro_preco decimal(6,2) not null,
     pro_codigoBarras varchar(20) not null,
+    pro_estoque int not null,
     cat_id int,
     FOREIGN KEY (cat_id) REFERENCES categoria(cat_id)
 );
@@ -35,9 +36,48 @@ create table cliente(
     cli_email varchar(50) not null unique
 );
 
-drop table fornecedor;
+drop table produto;
 
 select * from cliente;
 select * from categoria;
 select * from produto;
 select * from fornecedor;
+
+create table notaEntrada(
+	noE_id int not null auto_increment primary key,
+    noE_data date not null,
+    noE_valorTotal decimal (10,2),
+    for_CNPJ varchar(50),
+    FOREIGN KEY (for_CNPJ) REFERENCES fornecedor(for_CNPJ)
+);
+
+create table notaSaida(
+	noS_id int not null auto_increment primary key,
+    noS_data date not null,
+    noS_valorTotal decimal (10,2),
+    cli_CPF varchar(50),
+    FOREIGN KEY (cli_CPF) REFERENCES cliente(cli_CPF)
+);
+
+create table notaEntradaProduto(
+	nEP_id int not null auto_increment primary key,
+    nEP_quantidade int not null,
+    nEP_valorUnitario decimal (10,2) not null,
+    nEP_valorTotal decimal (10,2) not null,
+    pro_id int,
+    noE_id int,     
+    FOREIGN KEY (pro_id) REFERENCES produto(pro_id),
+    FOREIGN KEY (noE_id) REFERENCES notaEntrada(noE_id)
+);
+
+create table notaSaidaProduto(
+	nSP_id int not null auto_increment primary key,
+    nSP_quantidade int not null,
+    nSP_valorUnitario decimal (10,2) not null,
+    nSP_valorTotal decimal (10,2) not null,
+    pro_id int,
+    noS_id int,     
+    FOREIGN KEY (pro_id) REFERENCES produto(pro_id),
+    FOREIGN KEY (noS_id) REFERENCES notaSaida(noS_id)
+);
+

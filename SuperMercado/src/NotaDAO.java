@@ -4,7 +4,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashSet;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,33 +16,49 @@ import java.util.HashSet;
  * @author Júlio de Souza
  * @since 23/06/2025;
  */
-public class ProdutoDAO implements ClasseDAO{
+public class NotaDAO implements ClasseDAO{
     private Conexao conexao;
     private Connection conn;
     
-    public ProdutoDAO(){
+    public NotaDAO(){
         this.conexao = new Conexao();
         this.conn =  this.conexao.getConexao();
     }
-    public void inserir (Produto produto){
-        String sql = "INSERT INTO produto (pro_nome, pro_preco, pro_codigoBarras, pro_estoque, cat_id) VALUES (?,?,?,?,?);";
+    public void inserir (Nota nota){
+        if (nota.getTipo() == "Entrada"){
+            String sql = "INSERT INTO notaEntrada (noE_data, noE_valorTotal, for_CNPJ) VALUES (?,?,?);";
         
-        try{
-            PreparedStatement stmt = this.conn.prepareStatement(sql);
-            stmt.setString(1, produto.getNome());
-            stmt.setFloat(2, produto.getPreco());
-            stmt.setString(3, produto.getCodidgoBarras());
-            stmt.setInt(4, produto.getEstoque());
-            stmt.setInt(5, produto.getIdCategoria());
-            
-            stmt.execute();
-            
-        } catch(SQLException ex){
-            System.out.println("Erro ao inserir produto: " + ex.getMessage());
+            try{
+                PreparedStatement stmt = this.conn.prepareStatement(sql);
+                stmt.setString(1, nota.getData());
+                stmt.setFloat(2, nota.getValorTotal());
+                stmt.setString(3, nota.getOperador());
+
+                stmt.execute();
+
+            } catch(SQLException ex){
+                System.out.println("Erro ao inserir nota de entrada: " + ex.getMessage());
+            }
         }
+        else{
+            String sql = "INSERT INTO notaSaida (noE_data, noE_valorTotal, cli_CPF) VALUES (?,?,?);";
+        
+            try{
+                PreparedStatement stmt = this.conn.prepareStatement(sql);
+                stmt.setString(1, nota.getData());
+                stmt.setFloat(2, nota.getValorTotal());
+                stmt.setString(3, nota.getOperador());
+
+                stmt.execute();
+
+            } catch(SQLException ex){
+                System.out.println("Erro ao inserir nota de saida: " + ex.getMessage());
+            }
+        }
+        
     }
-    
-    public Produto getProduto(int id){
+    /*
+    public Produto getProduto(int id, String tipo){
         String sql = "SELECT pro_nome, pro_preco, pro_codigoBarras, pro_estoque, cat_id FROM produto where pro_id = ?";
         
         try{
@@ -98,7 +113,7 @@ public class ProdutoDAO implements ClasseDAO{
             return null;
         }
     }
-
+    */
     @Override
     public boolean atualizar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

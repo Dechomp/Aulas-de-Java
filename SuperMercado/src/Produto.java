@@ -15,13 +15,17 @@ public class Produto {
     private float preco;
     private String codidgoBarras;
     private int idCategoria;
+    private int estoque;
 
-    public Produto(String nome, float preco, String codidgoBarras, int idCategoria) {
+    public Produto(String nome, float preco, String codidgoBarras, int estoque, int idCategoria ) {
         this.nome = nome;
         this.preco = preco;
         this.codidgoBarras = codidgoBarras;
+        this.estoque = estoque;
         this.idCategoria = idCategoria;
+        
     }
+
 
     public int getIdCategoria() {
         return idCategoria;
@@ -65,6 +69,14 @@ public class Produto {
     
     public String toString(){
         return this.id+" - "+this.nome;
+    }
+
+    public int getEstoque() {
+        return estoque;
+    }
+
+    public void setEstoque(int estoque) {
+        this.estoque = estoque;
     }
     
     

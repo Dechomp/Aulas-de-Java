@@ -58,18 +58,24 @@ public class FrameCadastrarProduto extends javax.swing.JFrame {
         cobCadCategoria = new javax.swing.JComboBox();
         btnVoltar = new javax.swing.JButton();
         btnCadastrar = new javax.swing.JButton();
+        lblCadEstoque = new javax.swing.JLabel();
+        txtCadEstoque = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblCadastrarProduto.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         lblCadastrarProduto.setText("Cadastrar Produtos");
 
+        lblCadNome.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lblCadNome.setText("Nome:");
 
+        lblCadPreco.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lblCadPreco.setText("Preço:");
 
+        lblCadCodigoBarras.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lblCadCodigoBarras.setText("Código de Barras:");
 
+        lblCadCategoria.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lblCadCategoria.setText("Categoria:");
 
         btnVoltar.setText("Voltar");
@@ -86,32 +92,48 @@ public class FrameCadastrarProduto extends javax.swing.JFrame {
             }
         });
 
+        lblCadEstoque.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        lblCadEstoque.setText("Estoque:");
+
+        txtCadEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCadEstoqueActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCadCodigoBarras)
+                    .addComponent(lblCadEstoque)
+                    .addComponent(lblCadCategoria))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCadNome)
+                    .addComponent(txtCadPreco)
+                    .addComponent(txtCadCodigoBarras)
+                    .addComponent(txtCadEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cobCadCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(96, 96, 96)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCadNome)
-                            .addComponent(lblCadPreco)
-                            .addComponent(lblCadCodigoBarras)
-                            .addComponent(lblCadCategoria))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCadCodigoBarras)
-                            .addComponent(cobCadCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtCadPreco)
-                            .addComponent(txtCadNome)))
+                        .addComponent(lblCadPreco))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(lblCadNome))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(btnVoltar)
                             .addComponent(lblCadastrarProduto)
                             .addComponent(btnCadastrar))))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,22 +146,26 @@ public class FrameCadastrarProduto extends javax.swing.JFrame {
                     .addComponent(txtCadNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCadPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCadPreco))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblCadPreco)
-                        .addGap(29, 29, 29)
-                        .addComponent(lblCadCodigoBarras)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblCadCategoria))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtCadPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
                         .addComponent(txtCadCodigoBarras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(cobCadCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(132, 132, 132)
-                        .addComponent(btnCadastrar)
+                        .addComponent(txtCadEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cobCadCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblCadCodigoBarras)
                         .addGap(18, 18, 18)
-                        .addComponent(btnVoltar)))
+                        .addComponent(lblCadEstoque)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblCadCategoria)))
+                .addGap(154, 154, 154)
+                .addComponent(btnCadastrar)
+                .addGap(18, 18, 18)
+                .addComponent(btnVoltar)
                 .addContainerGap(105, Short.MAX_VALUE))
         );
 
@@ -147,9 +173,9 @@ public class FrameCadastrarProduto extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,31 +200,36 @@ public class FrameCadastrarProduto extends javax.swing.JFrame {
         }
         float preco = Float.parseFloat(txtCadPreco.getText());
         String codigoBarras = txtCadCodigoBarras.getText();
-        
+        int estoque = Integer.parseInt(txtCadEstoque.getText());
         //Pegando o ID
         Categoria c = (Categoria) cobCadCategoria.getSelectedItem();
         
         int idCategoria = c.getId();
         
-        if (nome.equals("") || preco <= 0 || codigoBarras.equals("")){
-            JOptionPane.showMessageDialog(null, "Há campos vazios, por favor corrija", "Campo vazio", JOptionPane.ERROR_MESSAGE);
+        if (nome.equals("") || preco <= 0 || codigoBarras.equals("") || estoque < 0){
+            JOptionPane.showMessageDialog(null, "Há campos vazios ou incorretos, por favor corrija", "Campo vazio", JOptionPane.ERROR_MESSAGE);
         }
         
         else{
             
-            Produto p = new Produto(nome, preco, codigoBarras, idCategoria);
+            Produto p = new Produto(nome, preco, codigoBarras, estoque, idCategoria);
             ProdutoDAO pDAO = new ProdutoDAO();
             pDAO.inserir(p);
             
             txtCadNome.setText("");
             txtCadPreco.setText("");
             txtCadCodigoBarras.setText("");
+            txtCadEstoque.setText("");
         }
         
         
         
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void txtCadEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCadEstoqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCadEstoqueActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,10 +273,12 @@ public class FrameCadastrarProduto extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCadCategoria;
     private javax.swing.JLabel lblCadCodigoBarras;
+    private javax.swing.JLabel lblCadEstoque;
     private javax.swing.JLabel lblCadNome;
     private javax.swing.JLabel lblCadPreco;
     private javax.swing.JLabel lblCadastrarProduto;
     private javax.swing.JTextField txtCadCodigoBarras;
+    private javax.swing.JTextField txtCadEstoque;
     private javax.swing.JTextField txtCadNome;
     private javax.swing.JTextField txtCadPreco;
     // End of variables declaration//GEN-END:variables
