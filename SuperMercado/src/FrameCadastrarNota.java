@@ -1,3 +1,9 @@
+
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -14,7 +20,9 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
      */
     public FrameCadastrarNota() {
         initComponents();
-       
+        
+        //COlocar data como sysData()
+        
     }
 
     /**
@@ -30,6 +38,19 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         lblCadNota = new javax.swing.JLabel();
         lblCadTipo = new javax.swing.JLabel();
         cobCadTipo = new javax.swing.JComboBox<>();
+        lblCadConstrutor = new javax.swing.JLabel();
+        txtCadConstrutor = new javax.swing.JTextField();
+        lblCadData = new javax.swing.JLabel();
+        txtCadData = new javax.swing.JTextField();
+        lblCadValorTotal = new javax.swing.JLabel();
+        txtCadValorTotal = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        btnCadItens = new javax.swing.JButton();
+        btnAtuItens = new javax.swing.JButton();
+        btnDeltens = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        btnVoltar2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,60 +66,214 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
             }
         });
 
+        lblCadConstrutor.setText("Escolha o tipo primeiro:");
+
+        txtCadConstrutor.setEnabled(false);
+
+        lblCadData.setText("Data:");
+
+        lblCadValorTotal.setText("Valor Total:");
+
+        btnCadItens.setText("Adicionar Itens");
+        btnCadItens.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadItensActionPerformed(evt);
+            }
+        });
+
+        btnAtuItens.setText("Atualizar Itens");
+        btnAtuItens.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtuItensActionPerformed(evt);
+            }
+        });
+
+        btnDeltens.setText("Deletar Itens");
+        btnDeltens.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeltensActionPerformed(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nome", "Valor Unitário", "Quantidade", "Valor Total"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnDeltens)
+                    .addComponent(btnAtuItens)
+                    .addComponent(btnCadItens))
+                .addContainerGap())
+        );
+
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAtuItens, btnCadItens, btnDeltens});
+
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnCadItens)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnAtuItens)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnDeltens)))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAtuItens, btnCadItens, btnDeltens});
+
+        btnVoltar2.setText("Voltar");
+        btnVoltar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltar2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(138, 138, 138)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(lblCadNota)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblCadTipo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cobCadTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(459, Short.MAX_VALUE))
+                        .addGap(116, 116, 116)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCadNota)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblCadTipo)
+                                    .addComponent(lblCadValorTotal)
+                                    .addComponent(lblCadData, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblCadConstrutor))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtCadValorTotal)
+                                    .addComponent(txtCadConstrutor)
+                                    .addComponent(cobCadTipo, 0, 270, Short.MAX_VALUE)
+                                    .addComponent(txtCadData)))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(270, 270, 270)
+                        .addComponent(btnVoltar2)))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addComponent(lblCadNota)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCadTipo)
                     .addComponent(cobCadTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(350, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCadConstrutor, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCadConstrutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCadData)
+                    .addComponent(txtCadData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCadValorTotal)
+                    .addComponent(txtCadValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnVoltar2)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnVoltar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar2ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_btnVoltar2ActionPerformed
+
+    private void btnDeltensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeltensActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeltensActionPerformed
+
+    private void btnAtuItensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtuItensActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAtuItensActionPerformed
+
+    private void btnCadItensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadItensActionPerformed
+        // TODO add your handling code here:
+        FrameCadastrarItensNota frCadItensNota = new FrameCadastrarItensNota();
+        int id = 1;
+        JTextField txtID = new JTextField();
+        txtID.setName("txtCadID");
+        txtID.setText("" + id);
+        frCadItensNota.add(txtID);
+        txtID.setSize(1, 1);
+        txtID.setVisible(true);
+        
+        frCadItensNota.show();
+    }//GEN-LAST:event_btnCadItensActionPerformed
+
     private void cobCadTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cobCadTipoActionPerformed
         // TODO add your handling code here:
         if(cobCadTipo.getSelectedItem() == "Entrada"){
-            lblCadNota.setText("Cadastro de nota de entrada");
-        } 
+            lblCadNota.setText("Cadastro de nota de entrada:");
+            lblCadConstrutor.setText("CNPJ do Fornecedor");
+            txtCadConstrutor.enable(true);
+        }
         else if(cobCadTipo.getSelectedItem() == "Saída"){
-            lblCadNota.setText("Cadastro de nota de saída");
+            lblCadNota.setText("Cadastro de nota de saída:");
+            lblCadConstrutor.setText("CPF do Cliente");
+            txtCadConstrutor.enable(true);
         }
         else{
             lblCadNota.setText("Cadastro de nota");
+            lblCadConstrutor.setText("Escolha o tipo primeiro:");
+            txtCadConstrutor.setText("");
+            txtCadConstrutor.enable(false);
         }
     }//GEN-LAST:event_cobCadTipoActionPerformed
 
@@ -139,9 +314,24 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtuItens;
+    private javax.swing.JButton btnCadItens;
+    private javax.swing.JButton btnDeltens;
+    private javax.swing.JButton btnVoltar;
+    private javax.swing.JButton btnVoltar1;
+    private javax.swing.JButton btnVoltar2;
     private javax.swing.JComboBox<String> cobCadTipo;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblCadConstrutor;
+    private javax.swing.JLabel lblCadData;
     private javax.swing.JLabel lblCadNota;
     private javax.swing.JLabel lblCadTipo;
+    private javax.swing.JLabel lblCadValorTotal;
+    private javax.swing.JTextField txtCadConstrutor;
+    private javax.swing.JTextField txtCadData;
+    private javax.swing.JTextField txtCadValorTotal;
     // End of variables declaration//GEN-END:variables
 }

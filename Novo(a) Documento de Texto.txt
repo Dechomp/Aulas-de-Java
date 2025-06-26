@@ -1,0 +1,1 @@
+Adiconar depois uma função na conexão que tira ou adiciona produtos 
