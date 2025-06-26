@@ -34,21 +34,25 @@ public class FrameInicial extends javax.swing.JFrame {
         radCadCategoria = new javax.swing.JRadioButtonMenuItem();
         radCadProduto = new javax.swing.JRadioButtonMenuItem();
         radCadFornecedor = new javax.swing.JRadioButtonMenuItem();
+        radCadNota = new javax.swing.JMenuItem();
         menuExibir = new javax.swing.JMenu();
         radExiCliente = new javax.swing.JRadioButtonMenuItem();
         radExiCategoria = new javax.swing.JRadioButtonMenuItem();
         radExiProduto = new javax.swing.JRadioButtonMenuItem();
         radExiFornecedor = new javax.swing.JRadioButtonMenuItem();
+        radExiNota = new javax.swing.JMenuItem();
         menuAtualizar = new javax.swing.JMenu();
         radAtuaCliente = new javax.swing.JRadioButtonMenuItem();
         radAtuaCategoria = new javax.swing.JRadioButtonMenuItem();
         radAtuaProduto = new javax.swing.JRadioButtonMenuItem();
         radAtuaFornecedor = new javax.swing.JRadioButtonMenuItem();
+        radAtuNota = new javax.swing.JMenuItem();
         menuDeletar = new javax.swing.JMenu();
         radDelCliente = new javax.swing.JRadioButtonMenuItem();
         radDelCategoria = new javax.swing.JRadioButtonMenuItem();
         radDelProduto = new javax.swing.JRadioButtonMenuItem();
         radDelFornecedor = new javax.swing.JRadioButtonMenuItem();
+        radDelNota = new javax.swing.JMenuItem();
 
         javaMenu.setText("jMenu1");
 
@@ -103,6 +107,14 @@ public class FrameInicial extends javax.swing.JFrame {
         });
         menuCadastrar.add(radCadFornecedor);
 
+        radCadNota.setText("Nota");
+        radCadNota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radCadNotaActionPerformed(evt);
+            }
+        });
+        menuCadastrar.add(radCadNota);
+
         jMenuBar1.add(menuCadastrar);
 
         menuExibir.setText("Exibir");
@@ -143,6 +155,9 @@ public class FrameInicial extends javax.swing.JFrame {
         });
         menuExibir.add(radExiFornecedor);
 
+        radExiNota.setText("Nota");
+        menuExibir.add(radExiNota);
+
         jMenuBar1.add(menuExibir);
 
         menuAtualizar.setText("Atualizar");
@@ -168,6 +183,9 @@ public class FrameInicial extends javax.swing.JFrame {
         radAtuaFornecedor.setText("Fornecedor");
         menuAtualizar.add(radAtuaFornecedor);
 
+        radAtuNota.setText("Nota");
+        menuAtualizar.add(radAtuNota);
+
         jMenuBar1.add(menuAtualizar);
 
         menuDeletar.setText("Deletar");
@@ -192,6 +210,9 @@ public class FrameInicial extends javax.swing.JFrame {
         radDelFornecedor.setSelected(true);
         radDelFornecedor.setText("Fornecedor");
         menuDeletar.add(radDelFornecedor);
+
+        radDelNota.setText("Nota");
+        menuDeletar.add(radDelNota);
 
         jMenuBar1.add(menuDeletar);
 
@@ -224,6 +245,8 @@ public class FrameInicial extends javax.swing.JFrame {
 
     private void radExiClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radExiClienteActionPerformed
         // TODO add your handling code here:
+        FrameExibirCliente frExiCliente = new FrameExibirCliente();
+        frExiCliente.show();
     }//GEN-LAST:event_radExiClienteActionPerformed
 
     private void radAtuaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radAtuaClienteActionPerformed
@@ -270,6 +293,12 @@ public class FrameInicial extends javax.swing.JFrame {
         frExiFornecedor.show();
     }//GEN-LAST:event_radExiFornecedorActionPerformed
 
+    private void radCadNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radCadNotaActionPerformed
+        // TODO add your handling code here:
+        FrameCadastrarNota frCadNota = new FrameCadastrarNota();
+        frCadNota.show();
+    }//GEN-LAST:event_radCadNotaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -313,6 +342,7 @@ public class FrameInicial extends javax.swing.JFrame {
     private javax.swing.JMenu menuDeletar;
     private javax.swing.JMenu menuExibir;
     private javax.swing.JPanel painelPrincipal;
+    private javax.swing.JMenuItem radAtuNota;
     private javax.swing.JRadioButtonMenuItem radAtuaCategoria;
     private javax.swing.JRadioButtonMenuItem radAtuaCliente;
     private javax.swing.JRadioButtonMenuItem radAtuaFornecedor;
@@ -320,14 +350,17 @@ public class FrameInicial extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem radCadCategoria;
     private javax.swing.JRadioButtonMenuItem radCadCliente;
     private javax.swing.JRadioButtonMenuItem radCadFornecedor;
+    private javax.swing.JMenuItem radCadNota;
     private javax.swing.JRadioButtonMenuItem radCadProduto;
     private javax.swing.JRadioButtonMenuItem radDelCategoria;
     private javax.swing.JRadioButtonMenuItem radDelCliente;
     private javax.swing.JRadioButtonMenuItem radDelFornecedor;
+    private javax.swing.JMenuItem radDelNota;
     private javax.swing.JRadioButtonMenuItem radDelProduto;
     private javax.swing.JRadioButtonMenuItem radExiCategoria;
     private javax.swing.JRadioButtonMenuItem radExiCliente;
     private javax.swing.JRadioButtonMenuItem radExiFornecedor;
+    private javax.swing.JMenuItem radExiNota;
     private javax.swing.JRadioButtonMenuItem radExiProduto;
     // End of variables declaration//GEN-END:variables
 }

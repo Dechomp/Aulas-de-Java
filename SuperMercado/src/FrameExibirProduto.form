@@ -47,14 +47,6 @@
               <Group type="102" attributes="0">
                   <EmptySpace pref="297" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="2" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnVoltar" alignment="2" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnPesquisar" alignment="2" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblExiProduto" alignment="2" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="246" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lblExiEstoque" min="-2" max="-2" attributes="0"/>
@@ -72,12 +64,19 @@
                           <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="145" pref="145" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtExiId" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
-                              <Component id="txtExiNome" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
-                              <Component id="txtExiPreco" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
-                              <Component id="txtExiCodigoBarras" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                              <Component id="btnVoltar" alignment="2" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnPesquisar" alignment="2" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblExiProduto" alignment="2" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="145" pref="145" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtExiId" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                                      <Component id="txtExiNome" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                                      <Component id="txtExiPreco" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                                      <Component id="txtExiCodigoBarras" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>

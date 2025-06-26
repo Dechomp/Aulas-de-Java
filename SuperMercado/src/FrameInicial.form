@@ -54,6 +54,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radCadFornecedorActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="radCadNota">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nota"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radCadNotaActionPerformed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuExibir">
@@ -97,6 +105,11 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radExiFornecedorActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="radExiNota">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nota"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuAtualizar">
@@ -131,6 +144,11 @@
                 <Property name="text" type="java.lang.String" value="Fornecedor"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="radAtuNota">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nota"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuDeletar">
@@ -163,6 +181,11 @@
               <Properties>
                 <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Fornecedor"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="radDelNota">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nota"/>
               </Properties>
             </MenuItem>
           </SubComponents>

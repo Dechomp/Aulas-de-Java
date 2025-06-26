@@ -225,7 +225,7 @@ public class FrameExibirProduto extends javax.swing.JFrame {
 
         Categoria c = cDAO.getCategoria(p.getIdCategoria());
 
-        if(c == null){
+        if(p == null){
             txtExiId.setText("");
             txtExiNome.setText("");
             txtExiPreco.setText("");

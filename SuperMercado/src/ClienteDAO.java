@@ -1,6 +1,7 @@
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /*
@@ -36,6 +37,31 @@ public class ClienteDAO implements ClasseDAO{
             
         } catch(SQLException ex){
             System.out.println("Erro ao inserir cliente: " + ex.getMessage());
+        }
+    }
+    public Cliente getCliente(String CPF){
+        String sql = "SELECT cli_nome, cli_email FROM cliente where cli_CPF = ?";
+        
+        try{
+            PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            
+
+            stmt.setString(1, CPF);
+            ResultSet rs = stmt.executeQuery();
+            Cliente c = new Cliente("", "", "");
+            
+            rs.first();
+            
+            c.setCPF(CPF);
+            c.setNome(rs.getString("cli_nome"));
+            c.setEmail(rs.getString("cli_email"));
+            
+            
+            
+            return c;
+        }catch (SQLException ex){
+            System.out.println("Erro ao consultar cliente: "+ ex.getMessage());
+            return null;
         }
     }
 
