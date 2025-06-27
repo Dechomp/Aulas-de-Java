@@ -249,9 +249,9 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         int id = 1;
         JTextField txtID = new JTextField();
         txtID.setName("txtCadID");
-        txtID.setText("" + id);
+        txtID.setText("" + id + " " +txtID.getName() );
         frCadItensNota.add(txtID);
-        txtID.setSize(1, 1);
+        txtID.setSize(100, 100);
         txtID.setVisible(true);
         
         frCadItensNota.show();
