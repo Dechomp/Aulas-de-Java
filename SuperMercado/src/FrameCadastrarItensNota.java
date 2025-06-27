@@ -14,7 +14,7 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
      */
     public FrameCadastrarItensNota() {
         initComponents();
-        txtCadID.setText(txtCadID.getText());
+        
     }
 
     /**
@@ -37,9 +37,10 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
         lblCadValorTotal = new javax.swing.JLabel();
         CadValorTotal = new javax.swing.JTextField();
         txtCadastrar = new javax.swing.JButton();
-        btnVoltar2 = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
         lblCadID = new javax.swing.JLabel();
         txtCadID = new javax.swing.JTextField();
+        btnBuscarID = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,11 +61,16 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
         CadValorTotal.setEnabled(false);
 
         txtCadastrar.setText("Cadastrar");
-
-        btnVoltar2.setText("Voltar");
-        btnVoltar2.addActionListener(new java.awt.event.ActionListener() {
+        txtCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltar2ActionPerformed(evt);
+                txtCadastrarActionPerformed(evt);
+            }
+        });
+
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
             }
         });
 
@@ -107,7 +113,7 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cobCadProduto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(CadValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(btnVoltar2, javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(btnVoltar, javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(txtCadastrar, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(169, Short.MAX_VALUE))
         );
@@ -135,34 +141,58 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(txtCadastrar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnVoltar2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnVoltar)
+                .addContainerGap(120, Short.MAX_VALUE))
         );
+
+        btnBuscarID.setText("Buscar ID");
+        btnBuscarID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarIDActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(315, 315, 315)
+                .addComponent(btnBuscarID, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBuscarID)
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVoltar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar2ActionPerformed
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_btnVoltar2ActionPerformed
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void txtCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCadastrarActionPerformed
+        // TODO add your handling code here:
+        FrameCadastrarItensNota id = new FrameCadastrarItensNota();
+        txtCadID.setText(id.getTitle());
+    }//GEN-LAST:event_txtCadastrarActionPerformed
+
+    private void btnBuscarIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarIDActionPerformed
+        // TODO add your handling code here:
+        FrameCadastrarItensNota id = new FrameCadastrarItensNota();
+        
+    }//GEN-LAST:event_btnBuscarIDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,7 +231,8 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CadValorTotal;
-    private javax.swing.JButton btnVoltar2;
+    private javax.swing.JButton btnBuscarID;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JComboBox<String> cobCadProduto;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCadID;
@@ -210,7 +241,7 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
     private javax.swing.JLabel lblCadValorTotal;
     private javax.swing.JLabel lblCadValorUnitario;
     private javax.swing.JLabel lblProduto;
-    private javax.swing.JTextField txtCadID;
+    public javax.swing.JTextField txtCadID;
     private javax.swing.JTextField txtCadQuantidade;
     private javax.swing.JTextField txtCadValorUnitario;
     private javax.swing.JButton txtCadastrar;

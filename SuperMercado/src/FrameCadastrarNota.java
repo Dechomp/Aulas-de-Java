@@ -246,14 +246,10 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
     private void btnCadItensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadItensActionPerformed
         // TODO add your handling code here:
         FrameCadastrarItensNota frCadItensNota = new FrameCadastrarItensNota();
-        int id = 1;
-        JTextField txtID = new JTextField();
-        txtID.setName("txtCadID");
-        txtID.setText("" + id + " " +txtID.getName() );
-        frCadItensNota.add(txtID);
-        txtID.setSize(100, 100);
-        txtID.setVisible(true);
         
+        int id = 1;
+        
+        frCadItensNota.txtCadID.setText( "" + id);
         frCadItensNota.show();
     }//GEN-LAST:event_btnCadItensActionPerformed
 
