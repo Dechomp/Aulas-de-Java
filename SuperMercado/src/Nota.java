@@ -14,13 +14,15 @@ public class Nota {
     private String data;
     private float valorTotal;
     private String operador;
+    private String notaFiscal;
     private String tipo;
     
     
-    public Nota(String data, float valorTotal, String operador, String tipo) {
+    public Nota(String data, float valorTotal, String operador, String notaFiscal, String tipo) {
         this.data = data;
         this.valorTotal = valorTotal;
         this.operador = operador;
+        this.notaFiscal = notaFiscal;
         this.tipo = tipo;
     }
 
@@ -62,6 +64,14 @@ public class Nota {
 
     public void setOperador(String operador) {
         this.operador = operador;
+    }
+
+    public String getNotaFiscal() {
+        return notaFiscal;
+    }
+
+    public void setNotaFiscal(String notaFiscal) {
+        this.notaFiscal = notaFiscal;
     }
 
     

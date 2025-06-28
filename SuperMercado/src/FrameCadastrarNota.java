@@ -47,10 +47,13 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btnCadItens = new javax.swing.JButton();
         btnAtuItens = new javax.swing.JButton();
-        btnDeltens = new javax.swing.JButton();
+        btnDelItens = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        btnVoltar2 = new javax.swing.JButton();
+        tabCadItensNota = new javax.swing.JTable();
+        btnCadNota = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
+        lblCadNotaFiscal = new javax.swing.JLabel();
+        txtCadNotaFiscal = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,14 +91,14 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
             }
         });
 
-        btnDeltens.setText("Deletar Itens");
-        btnDeltens.addActionListener(new java.awt.event.ActionListener() {
+        btnDelItens.setText("Deletar Itens");
+        btnDelItens.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeltensActionPerformed(evt);
+                btnDelItensActionPerformed(evt);
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabCadItensNota.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -114,7 +117,15 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        tabCadItensNota.setEnabled(false);
+        jScrollPane1.setViewportView(tabCadItensNota);
+
+        btnCadNota.setText("Criar nota");
+        btnCadNota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadNotaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -123,39 +134,44 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnDeltens)
+                    .addComponent(btnDelItens)
                     .addComponent(btnAtuItens)
-                    .addComponent(btnCadItens))
-                .addContainerGap())
+                    .addComponent(btnCadItens)
+                    .addComponent(btnCadNota))
+                .addGap(150, 150, 150))
         );
 
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAtuItens, btnCadItens, btnDeltens});
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAtuItens, btnCadItens, btnCadNota, btnDelItens});
 
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnCadNota)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                         .addComponent(btnCadItens)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnAtuItens)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnDeltens)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                        .addComponent(btnDelItens)
+                        .addGap(14, 14, 14))))
         );
 
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAtuItens, btnCadItens, btnDeltens});
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAtuItens, btnCadItens, btnCadNota, btnDelItens});
 
-        btnVoltar2.setText("Voltar");
-        btnVoltar2.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltar2ActionPerformed(evt);
+                btnVoltarActionPerformed(evt);
             }
         });
+
+        lblCadNotaFiscal.setText("Nota Fiscal:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -167,23 +183,25 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
                         .addGap(116, 116, 116)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCadNota)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblCadTipo)
                                     .addComponent(lblCadValorTotal)
                                     .addComponent(lblCadData, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblCadConstrutor))
+                                    .addComponent(lblCadConstrutor)
+                                    .addComponent(lblCadNotaFiscal))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtCadValorTotal)
                                     .addComponent(txtCadConstrutor)
                                     .addComponent(cobCadTipo, 0, 270, Short.MAX_VALUE)
-                                    .addComponent(txtCadData)))
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtCadData)
+                                    .addComponent(txtCadNotaFiscal)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(btnVoltar2)))
-                .addContainerGap(83, Short.MAX_VALUE))
+                        .addGap(269, 269, 269)
+                        .addComponent(btnVoltar)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,11 +224,15 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCadValorTotal)
                     .addComponent(txtCadValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCadNotaFiscal)
+                    .addComponent(txtCadNotaFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnVoltar2)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addComponent(btnVoltar)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -218,9 +240,9 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(97, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,14 +252,14 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVoltar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar2ActionPerformed
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_btnVoltar2ActionPerformed
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
-    private void btnDeltensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeltensActionPerformed
+    private void btnDelItensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelItensActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnDeltensActionPerformed
+    }//GEN-LAST:event_btnDelItensActionPerformed
 
     private void btnAtuItensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtuItensActionPerformed
         // TODO add your handling code here:
@@ -245,16 +267,20 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
 
     private void btnCadItensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadItensActionPerformed
         // TODO add your handling code here:
+        //Não deixar que ele crie os itens da nota se não tiver nota cadastrada com este ID, no caso já vamos fazer isto na hota de buscar ID
+        
         FrameCadastrarItensNota frCadItensNota = new FrameCadastrarItensNota();
         
-        int id = 1;
+        int id = 1000;
         
         frCadItensNota.txtCadID.setText( "" + id);
         frCadItensNota.show();
+        
     }//GEN-LAST:event_btnCadItensActionPerformed
 
     private void cobCadTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cobCadTipoActionPerformed
         // TODO add your handling code here:
+        
         if(cobCadTipo.getSelectedItem() == "Entrada"){
             lblCadNota.setText("Cadastro de nota de entrada:");
             lblCadConstrutor.setText("CNPJ do Fornecedor");
@@ -272,6 +298,12 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
             txtCadConstrutor.enable(false);
         }
     }//GEN-LAST:event_cobCadTipoActionPerformed
+
+    private void btnCadNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadNotaActionPerformed
+        // TODO add your handling code here:]
+        btnCadItens.enable(false);
+        
+    }//GEN-LAST:event_btnCadNotaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -312,22 +344,23 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtuItens;
     private javax.swing.JButton btnCadItens;
-    private javax.swing.JButton btnDeltens;
+    private javax.swing.JButton btnCadNota;
+    private javax.swing.JButton btnDelItens;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JButton btnVoltar1;
-    private javax.swing.JButton btnVoltar2;
     private javax.swing.JComboBox<String> cobCadTipo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblCadConstrutor;
     private javax.swing.JLabel lblCadData;
     private javax.swing.JLabel lblCadNota;
+    private javax.swing.JLabel lblCadNotaFiscal;
     private javax.swing.JLabel lblCadTipo;
     private javax.swing.JLabel lblCadValorTotal;
+    private javax.swing.JTable tabCadItensNota;
     private javax.swing.JTextField txtCadConstrutor;
     private javax.swing.JTextField txtCadData;
+    private javax.swing.JTextField txtCadNotaFiscal;
     private javax.swing.JTextField txtCadValorTotal;
     // End of variables declaration//GEN-END:variables
 }

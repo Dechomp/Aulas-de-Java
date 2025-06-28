@@ -190,7 +190,8 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
 
     private void btnBuscarIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarIDActionPerformed
         // TODO add your handling code here:
-        FrameCadastrarItensNota id = new FrameCadastrarItensNota();
+        int id = Integer.parseInt(txtCadID.getText());
+        
         
     }//GEN-LAST:event_btnBuscarIDActionPerformed
 

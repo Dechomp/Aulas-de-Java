@@ -46,6 +46,7 @@ create table notaEntrada(
 	noE_id int not null auto_increment primary key,
     noE_data date not null,
     noE_valorTotal decimal (10,2),
+    noE_notaFiscal varchar(20) unique,
     for_CNPJ varchar(50),
     FOREIGN KEY (for_CNPJ) REFERENCES fornecedor(for_CNPJ)
 );
@@ -54,6 +55,7 @@ create table notaSaida(
 	noS_id int not null auto_increment primary key,
     noS_data date not null,
     noS_valorTotal decimal (10,2),
+    noS_notaFiscal varchar(20) unique,
     cli_CPF varchar(50),
     FOREIGN KEY (cli_CPF) REFERENCES cliente(cli_CPF)
 );
