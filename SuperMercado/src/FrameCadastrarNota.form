@@ -48,7 +48,6 @@
                           <EmptySpace min="116" pref="116" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lblCadNota" min="-2" max="-2" attributes="0"/>
-                              <Component id="jPanel2" alignment="0" min="-2" pref="569" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="lblCadTipo" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -60,12 +59,13 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="txtCadValorTotal" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtCadConstrutor" alignment="0" max="32767" attributes="0"/>
                                       <Component id="cobCadTipo" alignment="0" pref="270" max="32767" attributes="0"/>
                                       <Component id="txtCadData" alignment="0" max="32767" attributes="0"/>
                                       <Component id="txtCadNotaFiscal" max="32767" attributes="0"/>
+                                      <Component id="cobCadConstrutor" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
+                              <Component id="jPanel2" alignment="0" min="-2" pref="569" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -88,11 +88,11 @@
                       <Component id="cobCadTipo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblCadConstrutor" min="-2" pref="21" max="-2" attributes="0"/>
-                      <Component id="txtCadConstrutor" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblCadConstrutor" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
+                      <Component id="cobCadConstrutor" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblCadData" min="-2" max="-2" attributes="0"/>
                       <Component id="txtCadData" min="-2" max="-2" attributes="0"/>
@@ -152,17 +152,16 @@
             <Property name="text" type="java.lang.String" value="Escolha o tipo primeiro:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtCadConstrutor">
-          <Properties>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="lblCadData">
           <Properties>
             <Property name="text" type="java.lang.String" value="Data:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCadData">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblCadValorTotal">
           <Properties>
@@ -170,6 +169,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCadValorTotal">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">
 
@@ -283,6 +285,17 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCadNotaFiscal">
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cobCadConstrutor">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

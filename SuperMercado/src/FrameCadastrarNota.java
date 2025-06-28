@@ -1,5 +1,7 @@
 
+import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 
@@ -22,7 +24,33 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         initComponents();
         
         //COlocar data como sysData()
+        DataDAO dDAO = new DataDAO();
         
+        
+        
+        txtCadData.setText(dDAO.getData());
+    }
+    public void preencherComboConstrutor(){
+        if(cobCadTipo.getSelectedItem() == "Entrada"){
+            
+        } else{
+          ClienteDAO cDAO = new ClienteDAO();
+          
+          ArrayList<Cliente> lista = cDAO.getClientes();
+          
+          for(Cliente c: lista){
+              cobCadConstrutor.addItem(c);
+          }
+        }
+        /*
+        ProdutoDAO pDAO = new ProdutoDAO();
+        
+        ArrayList<Produto> lista = pDAO.getProdutos();
+        
+        for(Produto p: lista){
+        //    cobCadProduto.addItem(p);
+        }
+        */
     }
 
     /**
@@ -39,7 +67,6 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         lblCadTipo = new javax.swing.JLabel();
         cobCadTipo = new javax.swing.JComboBox<>();
         lblCadConstrutor = new javax.swing.JLabel();
-        txtCadConstrutor = new javax.swing.JTextField();
         lblCadData = new javax.swing.JLabel();
         txtCadData = new javax.swing.JTextField();
         lblCadValorTotal = new javax.swing.JLabel();
@@ -54,6 +81,7 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         btnVoltar = new javax.swing.JButton();
         lblCadNotaFiscal = new javax.swing.JLabel();
         txtCadNotaFiscal = new javax.swing.JTextField();
+        cobCadConstrutor = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,11 +99,14 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
 
         lblCadConstrutor.setText("Escolha o tipo primeiro:");
 
-        txtCadConstrutor.setEnabled(false);
-
         lblCadData.setText("Data:");
 
+        txtCadData.setEditable(false);
+        txtCadData.setEnabled(false);
+
         lblCadValorTotal.setText("Valor Total:");
+
+        txtCadValorTotal.setEnabled(false);
 
         btnCadItens.setText("Adicionar Itens");
         btnCadItens.addActionListener(new java.awt.event.ActionListener() {
@@ -173,6 +204,8 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
 
         lblCadNotaFiscal.setText("Nota Fiscal:");
 
+        cobCadConstrutor.setToolTipText("");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -183,7 +216,6 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
                         .addGap(116, 116, 116)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCadNota)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblCadTipo)
@@ -194,10 +226,11 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtCadValorTotal)
-                                    .addComponent(txtCadConstrutor)
                                     .addComponent(cobCadTipo, 0, 270, Short.MAX_VALUE)
                                     .addComponent(txtCadData)
-                                    .addComponent(txtCadNotaFiscal)))))
+                                    .addComponent(txtCadNotaFiscal)
+                                    .addComponent(cobCadConstrutor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(269, 269, 269)
                         .addComponent(btnVoltar)))
@@ -213,10 +246,10 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
                     .addComponent(lblCadTipo)
                     .addComponent(cobCadTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCadConstrutor, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCadConstrutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(cobCadConstrutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCadData)
                     .addComponent(txtCadData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -270,9 +303,10 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         //Não deixar que ele crie os itens da nota se não tiver nota cadastrada com este ID, no caso já vamos fazer isto na hota de buscar ID
         
         FrameCadastrarItensNota frCadItensNota = new FrameCadastrarItensNota();
+        //Nota(String data, float valorTotal, String operador, String notaFiscal, String tipo)
         
-        int id = 1000;
-        
+        int id = 1; // nDAO.getID(nota);
+
         frCadItensNota.txtCadID.setText( "" + id);
         frCadItensNota.show();
         
@@ -284,24 +318,49 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         if(cobCadTipo.getSelectedItem() == "Entrada"){
             lblCadNota.setText("Cadastro de nota de entrada:");
             lblCadConstrutor.setText("CNPJ do Fornecedor");
-            txtCadConstrutor.enable(true);
+            cobCadConstrutor.removeAll();
+            preencherComboConstrutor();
         }
         else if(cobCadTipo.getSelectedItem() == "Saída"){
             lblCadNota.setText("Cadastro de nota de saída:");
             lblCadConstrutor.setText("CPF do Cliente");
-            txtCadConstrutor.enable(true);
+            cobCadConstrutor.removeAll();
+            preencherComboConstrutor();
         }
         else{
             lblCadNota.setText("Cadastro de nota");
             lblCadConstrutor.setText("Escolha o tipo primeiro:");
-            txtCadConstrutor.setText("");
-            txtCadConstrutor.enable(false);
+            cobCadConstrutor.removeAll();
         }
     }//GEN-LAST:event_cobCadTipoActionPerformed
 
     private void btnCadNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadNotaActionPerformed
         // TODO add your handling code here:]
-        btnCadItens.enable(false);
+        if (cobCadTipo.getSelectedItem() == "Selecione"){
+            JOptionPane.showMessageDialog(null, "Escolha a opção de nota primeiro", "Notra Inválida", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            
+
+            if(txtCadNotaFiscal.getText().equals("") || cobCadConstrutor.getSelectedItem().equals("")){
+                JOptionPane.showMessageDialog(null, "Insira os valores em todos os campos editaveis", "Campo vazio", JOptionPane.ERROR_MESSAGE);
+            }
+            else{
+                Nota nota = new Nota();
+        
+                nota.setData(txtCadData.getText());
+                nota.setValorTotal(Float.parseFloat(txtCadValorTotal.getText()));
+                nota.setTipo((String) cobCadTipo.getSelectedItem());
+                nota.setOperador((String) cobCadConstrutor.getSelectedItem());
+                nota.setNotaFiscal(txtCadNotaFiscal.getText());
+                NotaDAO nDAO = new NotaDAO();
+
+                nDAO.inserir(nota);
+            }
+        }
+        
+        
+        btnCadItens.enable(true);
         
     }//GEN-LAST:event_btnCadNotaActionPerformed
 
@@ -347,6 +406,7 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
     private javax.swing.JButton btnCadNota;
     private javax.swing.JButton btnDelItens;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JComboBox cobCadConstrutor;
     private javax.swing.JComboBox<String> cobCadTipo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -358,7 +418,6 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
     private javax.swing.JLabel lblCadTipo;
     private javax.swing.JLabel lblCadValorTotal;
     private javax.swing.JTable tabCadItensNota;
-    private javax.swing.JTextField txtCadConstrutor;
     private javax.swing.JTextField txtCadData;
     private javax.swing.JTextField txtCadNotaFiscal;
     private javax.swing.JTextField txtCadValorTotal;

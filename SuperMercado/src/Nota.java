@@ -26,6 +26,10 @@ public class Nota {
         this.tipo = tipo;
     }
 
+    Nota() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public String getTipo() {
         return tipo;
     }

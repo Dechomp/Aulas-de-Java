@@ -24,6 +24,7 @@ public class NotaDAO implements ClasseDAO{
         this.conexao = new Conexao();
         this.conn =  this.conexao.getConexao();
     }
+    
     public void inserir (Nota nota){
         if ("Entrada".equals(nota.getTipo())){
             String sql = "INSERT INTO notaEntrada (noE_data, noE_valorTotal, for_CNPJ) VALUES (?,?,?);";
@@ -103,6 +104,8 @@ public class NotaDAO implements ClasseDAO{
             }
         }
     }
+    
+    
     /*
     public Produto getProduto(int id, String tipo){
         String sql = "SELECT pro_nome, pro_preco, pro_codigoBarras, pro_estoque, cat_id FROM produto where pro_id = ?";

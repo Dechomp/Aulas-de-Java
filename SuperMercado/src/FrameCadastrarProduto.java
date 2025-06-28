@@ -20,7 +20,7 @@ public class FrameCadastrarProduto extends javax.swing.JFrame {
     public FrameCadastrarProduto() {
         initComponents();
         
-        // preencherComboProdutos();
+        preencherComboProdutos();
         
         //cobCadCategoria.setModel((ComboBoxModel<String>) cDAO.getCategoriasNome());
 

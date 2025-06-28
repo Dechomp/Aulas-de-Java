@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -64,7 +65,32 @@ public class ClienteDAO implements ClasseDAO{
             return null;
         }
     }
-
+    public ArrayList<Cliente> getClientes(){
+        String sql = "SELECT cli_CPF, cli_nome FROM cliente";
+        
+        try{
+            PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            
+            ArrayList<Cliente> lista = new ArrayList<>();
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            rs.first();
+            do{
+                Cliente c = new Cliente();
+                c.setCPF(rs.getString("cli_CPF"));
+                c.setNome(rs.getString("cli_nome"));
+                
+                lista.add(c);
+            }while(rs.next());
+            
+            
+            return lista;
+        }catch (SQLException ex){
+            System.out.println("Erro ao consultar clientes: "+ ex.getMessage());
+            return null;
+        }
+    }
 
     @Override
     public boolean atualizar() {
