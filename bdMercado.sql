@@ -1,3 +1,4 @@
+-- drop database bdMercado;
 create database bdMercado;
 use bdMercado;
 
@@ -83,3 +84,16 @@ create table notaSaidaProduto(
 );
 
 select day(sysdate()) dia, month(sysdate()) mes, year(sysdate()) ano;
+
+insert into categoria (cat_nome,	cat_descricao) values
+("Sementees", "Sementes no geral"),
+("Carne", "Carnes no geral"),
+("Paasta de dentes","Pasta de dentes no geral");
+/*
+insert into produto ( pro_nome, pro_preco, pro_codigoBarras, pro_estoque, cat_id) values
+("Uva", , "", , ),
+("Maçã", , "", , ),
+("Colgate Triple Dent", , "", , ),
+("Cloese Up", , "", , ),
+("", , "", , ),
+("", , "", , );*/
