@@ -1,4 +1,4 @@
-drop database bdMercado;
+	drop database bdMercado;
 create database bdMercado;
 use bdMercado;
 

@@ -52,7 +52,7 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         }
     }
     
-    public void preencherTabela(){
+    public void preencherTabela(String notaFiscal, String tipo){
         //Criar método de preencher a tabela  
         tabCadItensNota.removeAll();
         NotaDAO nDAO = new NotaDAO();
@@ -61,10 +61,10 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         
         Nota nota = new Nota();
         
-        nota.setNotaFiscal(txtCadNotaFiscal.getText());
+        nota.setNotaFiscal(notaFiscal);
         nota.setId(nDAO.getID(nota));
         
-        notaProduto.setTipo(lblCadTipo.getText());
+        notaProduto.setTipo(tipo);
         
         notaProduto.setId(nota.getId());
         
@@ -281,7 +281,7 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(269, 269, 269)
                         .addComponent(btnVoltar)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,8 +321,7 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(

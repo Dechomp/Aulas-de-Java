@@ -80,11 +80,11 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
 
         lblCadValorUnitario.setText("Valor Unitário:");
 
-        txtCadValorUnitario.setEnabled(false);
+        txtCadValorUnitario.setEditable(false);
 
         lblCadValorTotal.setText("Valor Total:");
 
-        txtCadValorTotal.setEnabled(false);
+        txtCadValorTotal.setEditable(false);
 
         txtCadastrar.setText("Cadastrar");
         txtCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -201,11 +201,12 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
 
     private void txtCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCadastrarActionPerformed
         // TODO add your handling code here: 
-        FrameCadastrarNota frCadNota = new FrameCadastrarNota();
         if(txtCadQuantidade.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Há campos vazios ou incorretos, por favor corrija", "Campo vazio", JOptionPane.ERROR_MESSAGE);
         }
         else{
+            txtCadValorTotal.setText("" + Integer.parseInt(txtCadQuantidade.getText()) * Float.parseFloat(txtCadValorUnitario.getText()));
+            JOptionPane.showMessageDialog(this, "Valor Total: "+ txtCadValorTotal.getText());
             NotaProduto np = new NotaProduto();
             
             np.setTipo(lblCadTipo.getText());
@@ -218,7 +219,9 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
             
             NotaProdutoDAO npDAO = new NotaProdutoDAO();
             npDAO.inserir(np);
-            frCadNota.preencherTabela();
+            
+            txtCadQuantidade.setText("");
+            txtCadValorTotal.setText("");
         }
         
     }//GEN-LAST:event_txtCadastrarActionPerformed

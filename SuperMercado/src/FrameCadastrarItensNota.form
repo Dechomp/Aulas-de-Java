@@ -173,7 +173,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtCadValorUnitario">
           <Properties>
-            <Property name="enabled" type="boolean" value="false"/>
+            <Property name="editable" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblCadValorTotal">
@@ -183,7 +183,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtCadValorTotal">
           <Properties>
-            <Property name="enabled" type="boolean" value="false"/>
+            <Property name="editable" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="txtCadastrar">
