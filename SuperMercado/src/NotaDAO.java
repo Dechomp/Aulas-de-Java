@@ -27,13 +27,14 @@ public class NotaDAO implements ClasseDAO{
     
     public void inserir (Nota nota){
         if ("Entrada".equals(nota.getTipo())){
-            String sql = "INSERT INTO notaEntrada (noE_data, noE_valorTotal, for_CNPJ) VALUES (?,?,?);";
+            String sql = "INSERT INTO notaEntrada (noE_data, noE_valorTotal, noE_notaFiscal,for_CNPJ) VALUES (?,?,?,?);";
         
             try{
                 PreparedStatement stmt = this.conn.prepareStatement(sql);
                 stmt.setString(1, nota.getData());
                 stmt.setFloat(2, nota.getValorTotal());
-                stmt.setString(3, nota.getOperador());
+                stmt.setString(3, nota.getNotaFiscal());
+                stmt.setString(4, nota.getOperador());
 
                 stmt.execute();
 
@@ -42,13 +43,14 @@ public class NotaDAO implements ClasseDAO{
             }
         }
         else{
-            String sql = "INSERT INTO notaSaida (noE_data, noE_valorTotal, cli_CPF) VALUES (?,?,?);";
+            String sql = "INSERT INTO notaSaida (noS_data, noS_valorTotal,  noS_notaFiscal , cli_CPF) VALUES (?,?,?,?);";
         
             try{
                 PreparedStatement stmt = this.conn.prepareStatement(sql);
                 stmt.setString(1, nota.getData());
                 stmt.setFloat(2, nota.getValorTotal());
-                stmt.setString(3, nota.getOperador());
+                stmt.setString(3, nota.getNotaFiscal());
+                stmt.setString(4, nota.getOperador());
 
                 stmt.execute();
 
@@ -60,7 +62,7 @@ public class NotaDAO implements ClasseDAO{
     }
     public int getID (Nota nota){
         if ("Entrada".equals(nota.getTipo())){
-            String sql = "Select noE_id from notaEntrada where noE_notaFiscal = ?;";
+            String sql = "Select noE_id from notaEntrada where noE_notaFiscal = ?";
         
             try{
                 PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -71,7 +73,7 @@ public class NotaDAO implements ClasseDAO{
 
                 rs.first();
 
-                nota.setId(rs.getInt("noR_id"));
+                nota.setId(rs.getInt("noE_id"));
 
 
 
@@ -82,7 +84,7 @@ public class NotaDAO implements ClasseDAO{
             }
         }
         else{
-            String sql = "Select noS_id from notaSaida where noE_notaFiscal = ?;";
+            String sql = "Select noS_id from notaSaida where noS_notaFiscal = ?;";
         
             try{
                 PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -93,7 +95,7 @@ public class NotaDAO implements ClasseDAO{
 
                 rs.first();
 
-                nota.setId(rs.getInt("noR_id"));
+                nota.setId(rs.getInt("noS_id"));
 
 
 

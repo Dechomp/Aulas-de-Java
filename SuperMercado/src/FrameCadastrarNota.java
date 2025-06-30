@@ -32,6 +32,13 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
     }
     public void preencherComboConstrutor(){
         if(cobCadTipo.getSelectedItem() == "Entrada"){
+            FornecedorDAO fDAO = new FornecedorDAO();
+            
+            ArrayList<Fornecedor> lista = fDAO.getFornecedores();
+            
+            for(Fornecedor f: lista){
+                cobCadConstrutor.addItem(f);
+            }
             
         } else{
           ClienteDAO cDAO = new ClienteDAO();
@@ -42,15 +49,6 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
               cobCadConstrutor.addItem(c);
           }
         }
-        /*
-        ProdutoDAO pDAO = new ProdutoDAO();
-        
-        ArrayList<Produto> lista = pDAO.getProdutos();
-        
-        for(Produto p: lista){
-        //    cobCadProduto.addItem(p);
-        }
-        */
     }
 
     /**
@@ -102,13 +100,15 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         lblCadData.setText("Data:");
 
         txtCadData.setEditable(false);
-        txtCadData.setEnabled(false);
+        txtCadData.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
         lblCadValorTotal.setText("Valor Total:");
 
-        txtCadValorTotal.setEnabled(false);
+        txtCadValorTotal.setEditable(false);
+        txtCadValorTotal.setText("0.0");
 
         btnCadItens.setText("Adicionar Itens");
+        btnCadItens.setEnabled(false);
         btnCadItens.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadItensActionPerformed(evt);
@@ -116,6 +116,7 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         });
 
         btnAtuItens.setText("Atualizar Itens");
+        btnAtuItens.setEnabled(false);
         btnAtuItens.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtuItensActionPerformed(evt);
@@ -123,6 +124,7 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         });
 
         btnDelItens.setText("Deletar Itens");
+        btnDelItens.setEnabled(false);
         btnDelItens.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDelItensActionPerformed(evt);
@@ -296,6 +298,7 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
 
     private void btnAtuItensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtuItensActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnAtuItensActionPerformed
 
     private void btnCadItensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadItensActionPerformed
@@ -304,10 +307,28 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         
         FrameCadastrarItensNota frCadItensNota = new FrameCadastrarItensNota();
         //Nota(String data, float valorTotal, String operador, String notaFiscal, String tipo)
+        Nota nota = new Nota();
+        String operador;
+        nota.setTipo((String) cobCadTipo.getSelectedItem());
         
-        int id = 1; // nDAO.getID(nota);
+        if (nota.getTipo().equals("Entrada")){
+            Fornecedor f = (Fornecedor) cobCadConstrutor.getSelectedItem();
 
-        frCadItensNota.txtCadID.setText( "" + id);
+            operador = f.getCNPJ();
+            nota.setOperador(operador);
+        } else{
+            Cliente c = (Cliente) cobCadConstrutor.getSelectedItem();
+
+            operador = c.getCPF();
+
+            nota.setOperador(operador);
+        }
+        
+        NotaDAO nDAO = new NotaDAO();
+        nota.setNotaFiscal(txtCadNotaFiscal.getText());
+        int id = nDAO.getID(nota);
+
+        frCadItensNota.txtCadID.setText("" + id);
         frCadItensNota.show();
         
     }//GEN-LAST:event_btnCadItensActionPerformed
@@ -318,19 +339,19 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         if(cobCadTipo.getSelectedItem() == "Entrada"){
             lblCadNota.setText("Cadastro de nota de entrada:");
             lblCadConstrutor.setText("CNPJ do Fornecedor");
-            cobCadConstrutor.removeAll();
+            cobCadConstrutor.removeAllItems();
             preencherComboConstrutor();
         }
         else if(cobCadTipo.getSelectedItem() == "Saída"){
             lblCadNota.setText("Cadastro de nota de saída:");
             lblCadConstrutor.setText("CPF do Cliente");
-            cobCadConstrutor.removeAll();
+            cobCadConstrutor.removeAllItems();
             preencherComboConstrutor();
         }
         else{
             lblCadNota.setText("Cadastro de nota");
             lblCadConstrutor.setText("Escolha o tipo primeiro:");
-            cobCadConstrutor.removeAll();
+            cobCadConstrutor.removeAllItems();
         }
     }//GEN-LAST:event_cobCadTipoActionPerformed
 
@@ -340,27 +361,41 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Escolha a opção de nota primeiro", "Notra Inválida", JOptionPane.ERROR_MESSAGE);
         }
         else{
-            
-
             if(txtCadNotaFiscal.getText().equals("") || cobCadConstrutor.getSelectedItem().equals("")){
                 JOptionPane.showMessageDialog(null, "Insira os valores em todos os campos editaveis", "Campo vazio", JOptionPane.ERROR_MESSAGE);
             }
             else{
+                String operador;
                 Nota nota = new Nota();
         
                 nota.setData(txtCadData.getText());
                 nota.setValorTotal(Float.parseFloat(txtCadValorTotal.getText()));
                 nota.setTipo((String) cobCadTipo.getSelectedItem());
-                nota.setOperador((String) cobCadConstrutor.getSelectedItem());
+     
+                if (nota.getTipo().equals("Entrada")){
+                    Fornecedor f = (Fornecedor) cobCadConstrutor.getSelectedItem();
+                    
+                    operador = f.getCNPJ();
+                    nota.setOperador(operador);
+                } else{
+                    Cliente c = (Cliente) cobCadConstrutor.getSelectedItem();
+                    
+                    operador = c.getCPF();
+                    
+                    nota.setOperador(operador);
+                }               
+                
                 nota.setNotaFiscal(txtCadNotaFiscal.getText());
                 NotaDAO nDAO = new NotaDAO();
 
                 nDAO.inserir(nota);
+                txtCadNotaFiscal.setEditable(false);
+                btnCadItens.setEnabled(true);
+                btnAtuItens.setEnabled(true);
+                btnDelItens.setEnabled(true);
+                btnCadNota.setEnabled(false);
             }
         }
-        
-        
-        btnCadItens.enable(true);
         
     }//GEN-LAST:event_btnCadNotaActionPerformed
 

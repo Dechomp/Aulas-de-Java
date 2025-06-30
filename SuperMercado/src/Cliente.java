@@ -20,10 +20,6 @@ public class Cliente {
         this.email = email;
     }
 
-    Cliente() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
     public String getCPF() {
         return CPF;
     }

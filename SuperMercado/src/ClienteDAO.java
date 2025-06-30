@@ -65,6 +65,7 @@ public class ClienteDAO implements ClasseDAO{
             return null;
         }
     }
+    
     public ArrayList<Cliente> getClientes(){
         String sql = "SELECT cli_CPF, cli_nome FROM cliente";
         
@@ -77,7 +78,7 @@ public class ClienteDAO implements ClasseDAO{
             
             rs.first();
             do{
-                Cliente c = new Cliente();
+                Cliente c = new Cliente("", "", "");
                 c.setCPF(rs.getString("cli_CPF"));
                 c.setNome(rs.getString("cli_nome"));
                 
@@ -91,7 +92,7 @@ public class ClienteDAO implements ClasseDAO{
             return null;
         }
     }
-
+    
     @Override
     public boolean atualizar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

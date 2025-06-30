@@ -47,7 +47,7 @@ public class Fornecedor {
     
     
     public String toString(){
-        return this.CNPJ+" - "+this.nome;
+        return this.CNPJ+" - "+this.nomeFantasia;
     }
     
     
