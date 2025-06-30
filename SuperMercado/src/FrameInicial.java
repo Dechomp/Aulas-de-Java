@@ -156,6 +156,11 @@ public class FrameInicial extends javax.swing.JFrame {
         menuExibir.add(radExiFornecedor);
 
         radExiNota.setText("Nota");
+        radExiNota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radExiNotaActionPerformed(evt);
+            }
+        });
         menuExibir.add(radExiNota);
 
         jMenuBar1.add(menuExibir);
@@ -298,6 +303,12 @@ public class FrameInicial extends javax.swing.JFrame {
         FrameCadastrarNota frCadNota = new FrameCadastrarNota();
         frCadNota.show();
     }//GEN-LAST:event_radCadNotaActionPerformed
+
+    private void radExiNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radExiNotaActionPerformed
+        // TODO add your handling code here:
+        FrameExibirNota frExiNota = new FrameExibirNota();
+        frExiNota.show();
+    }//GEN-LAST:event_radExiNotaActionPerformed
 
     /**
      * @param args the command line arguments

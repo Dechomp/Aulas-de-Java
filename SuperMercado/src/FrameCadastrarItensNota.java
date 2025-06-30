@@ -219,6 +219,7 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
             
             NotaProdutoDAO npDAO = new NotaProdutoDAO();
             npDAO.inserir(np);
+            npDAO.AtualizarPreco(np);
             
             txtCadQuantidade.setText("");
             txtCadValorTotal.setText("");

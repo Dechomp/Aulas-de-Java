@@ -54,7 +54,9 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
     
     public void preencherTabela(String notaFiscal, String tipo){
         //Criar método de preencher a tabela  
-        tabCadItensNota.removeAll();
+        int ultimo = tabCadItensNota.getRowCount();
+        
+        
         NotaDAO nDAO = new NotaDAO();
         NotaProdutoDAO npDAO = new NotaProdutoDAO();
         NotaProduto notaProduto = new NotaProduto();
@@ -62,11 +64,13 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         Nota nota = new Nota();
         
         nota.setNotaFiscal(notaFiscal);
-        nota.setId(nDAO.getID(nota));
+        nota.setTipo(tipo);
         
         notaProduto.setTipo(tipo);
+        nota.setId(nDAO.getID(nota));
         
-        notaProduto.setId(nota.getId());
+        notaProduto.setNotaId(nota.getId());
+        
         
         ArrayList<NotaProduto> lista = npDAO.getProdutosNota(notaProduto);
         
@@ -89,7 +93,8 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
                 tabelaProdutosNota.addRow(obj);
         }
         
-
+        Nota n = nDAO.getNota(nota);
+        txtCadValorTotal.setText("" + n.getValorTotal());
 
     }
 
@@ -118,6 +123,7 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabCadItensNota = new javax.swing.JTable();
         lblProdutosNota = new javax.swing.JLabel();
+        btnAtualizarLista = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         lblCadNotaFiscal = new javax.swing.JLabel();
         txtCadNotaFiscal = new javax.swing.JTextField();
@@ -196,6 +202,14 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         lblProdutosNota.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         lblProdutosNota.setText("Produtos da nota");
 
+        btnAtualizarLista.setText("Atualizar Lista");
+        btnAtualizarLista.setEnabled(false);
+        btnAtualizarLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarListaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -206,10 +220,11 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblProdutosNota))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnDelItens)
-                    .addComponent(btnAtuItens)
-                    .addComponent(btnCadItens))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnDelItens, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAtuItens, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCadItens, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAtualizarLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(150, 150, 150))
         );
 
@@ -218,7 +233,9 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(btnAtualizarLista)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCadItens)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAtuItens)
@@ -370,6 +387,8 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
                 btnCadItens.setEnabled(true);
                 btnAtuItens.setEnabled(true);
                 btnDelItens.setEnabled(true);
+                btnAtualizarLista.setEnabled(true);
+                
                 btnCadNota.setEnabled(false);
                 cobCadTipo.setEnabled(false);
                 cobCadConstrutor.setEnabled(false);
@@ -449,6 +468,11 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cobCadTipoActionPerformed
 
+    private void btnAtualizarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarListaActionPerformed
+        // TODO add your handling code here:
+        preencherTabela(txtCadNotaFiscal.getText(), (String) cobCadTipo.getSelectedItem());
+    }//GEN-LAST:event_btnAtualizarListaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -487,6 +511,7 @@ public class FrameCadastrarNota extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtuItens;
+    private javax.swing.JButton btnAtualizarLista;
     private javax.swing.JButton btnCadItens;
     private javax.swing.JButton btnCadNota;
     private javax.swing.JButton btnDelItens;

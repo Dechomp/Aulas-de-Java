@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -69,7 +70,7 @@ public class NotaProdutoDAO implements ClasseDAO {
     public ArrayList<NotaProduto> getProdutosNota(NotaProduto notaProduto){
         if ("Entrada".equals(notaProduto.getTipo())){
             
-            String sql = "SELECT mEP_id, nEP_quantidade, nEP_valorUnitario, nEP_valorTotal, pro_id "
+            String sql = "SELECT nEP_id, nEP_quantidade, nEP_valorUnitario, nEP_valorTotal, pro_id "
                     + "FROM notaEntradaProduto "
                     + "where noE_id = ?";
 
@@ -85,8 +86,8 @@ public class NotaProdutoDAO implements ClasseDAO {
                     NotaProduto np = new NotaProduto();
                     np.setId(rs.getInt("nEP_id"));
                     np.setQuantidade(rs.getInt("nEP_quantidade"));
-                    np.setValorUnitario(rs.getFloat("nEP_valorInitario"));
-                    np.setValorTotal(rs.getFloat("nEP_valorInitario"));
+                    np.setValorUnitario(rs.getFloat("nEP_valorUnitario"));
+                    np.setValorTotal(rs.getFloat("nEP_valorTotal"));
                     np.setProdutoID(rs.getInt("pro_id"));
                     // np.setNotaId(notaProduto.getNotaId());
 
@@ -96,7 +97,7 @@ public class NotaProdutoDAO implements ClasseDAO {
 
                 return lista;
             }catch (SQLException ex){
-                System.out.println("Erro ao consultar produtos na nota: "+ ex.getMessage());
+                System.out.println("Erro ao consultar produtos na nota de Entrada: "+ ex.getMessage());
                 return null;
             }
         }
@@ -129,8 +130,47 @@ public class NotaProdutoDAO implements ClasseDAO {
 
                 return lista;
             }catch (SQLException ex){
-                System.out.println("Erro ao consultar produtos na nota: "+ ex.getMessage());
+                System.out.println("Erro ao consultar produtos na nota na nota de saida: "+ ex.getMessage());
                 return null;
+            }
+        }
+    }
+    
+    public void AtualizarPreco(NotaProduto notap){
+        if ("Entrada".equals(notap.getTipo())){
+            String sql = "Update notaEntrada set noE_valorTotal = noE_valorTotal + ? where noE_id = ?";
+        
+            try{
+                PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                
+                stmt.setFloat(1, notap.getValorTotal());
+                stmt.setInt(2, notap.getNotaId());
+                
+                stmt.execute();
+
+
+                JOptionPane.showMessageDialog(null, "Sucesso ao atualizar preço da nota de entrada", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            }catch (SQLException ex){
+                System.out.println("Erro ao consultar id da nota de entrada: "+ ex.getMessage());
+                JOptionPane.showMessageDialog(null, "Erro ao atualizar preço da nota de entrada", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        else{
+            String sql = "Update notaSaida set noS_valorTotal = noS_valorTotal + ? where noS_id = ?";
+        
+            try{
+                PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                
+                stmt.setFloat(1, notap.getValorTotal());
+                stmt.setInt(2, notap.getNotaId());
+                
+                stmt.execute();
+
+
+                JOptionPane.showMessageDialog(null, "Sucesso ao atualizar preço da nota de saida", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            }catch (SQLException ex){
+                System.out.println("Erro ao consultar id da nota de entrada: "+ ex.getMessage());
+                JOptionPane.showMessageDialog(null, "Erro ao atualizar preço da nota de saida", "Erro", JOptionPane.ERROR_MESSAGE);
             }
         }
     }

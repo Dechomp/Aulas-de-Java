@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -42,39 +42,43 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
+                  <EmptySpace min="116" pref="116" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="116" pref="116" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblCadNota" min="-2" max="-2" attributes="0"/>
-                              <Component id="jPanel2" alignment="0" min="-2" pref="569" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="2" attributes="0">
+                          <Component id="btnVoltar" alignment="2" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblExiNota" alignment="2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jPanel2" alignment="0" min="-2" pref="441" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="lblExiConstrutor" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="txtExiOperador" max="32767" attributes="0"/>
+                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblCadTipo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblCadValorTotal" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblCadData" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                                      <Component id="lblCadConstrutor" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblCadNotaFiscal" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblExiTipo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblExiValorTotal" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblExiData" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                                      <Component id="lblExiNotaFiscal" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtCadValorTotal" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cobCadTipo" alignment="0" pref="270" max="32767" attributes="0"/>
-                                      <Component id="txtCadData" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cobCadConstrutor" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtCadNotaFiscal" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="cobExiTipo" min="-2" pref="223" max="-2" attributes="0"/>
+                                      <Component id="txtExiNotaFiscal" alignment="0" min="-2" pref="223" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txtExiData" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="txtExiValorTotal" pref="223" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Component id="btnCadNota" min="-2" pref="102" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="269" max="-2" attributes="0"/>
-                          <Component id="btnVoltar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="btnExiNota" min="-2" pref="102" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="112" max="32767" attributes="0"/>
+                  <EmptySpace pref="226" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -82,34 +86,34 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                  <Component id="lblCadNota" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblExiNota" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblCadTipo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cobCadTipo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblExiTipo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cobExiTipo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblCadConstrutor" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
-                      <Component id="cobCadConstrutor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblExiNotaFiscal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtExiNotaFiscal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnExiNota" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblCadData" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCadData" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblExiData" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtExiData" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblCadValorTotal" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCadValorTotal" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblExiValorTotal" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtExiValorTotal" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblCadNotaFiscal" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCadNotaFiscal" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnCadNota" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblExiConstrutor" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
+                      <Component id="txtExiOperador" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="jPanel2" max="32767" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnVoltar" min="-2" max="-2" attributes="0"/>
@@ -119,20 +123,20 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblCadNota">
+        <Component class="javax.swing.JLabel" name="lblExiNota">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="48" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cadastrar Nota"/>
+            <Property name="text" type="java.lang.String" value="Exibir Nota"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblCadTipo">
+        <Component class="javax.swing.JLabel" name="lblExiTipo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tipo de nota:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cobCadTipo">
+        <Component class="javax.swing.JComboBox" name="cobExiTipo">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
@@ -143,23 +147,23 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cobCadTipoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cobExiTipoActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblCadConstrutor">
+        <Component class="javax.swing.JLabel" name="lblExiConstrutor">
           <Properties>
             <Property name="text" type="java.lang.String" value="Escolha o tipo primeiro:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblCadData">
+        <Component class="javax.swing.JLabel" name="lblExiData">
           <Properties>
             <Property name="text" type="java.lang.String" value="Data:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtCadData">
+        <Component class="javax.swing.JTextField" name="txtExiData">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -167,12 +171,12 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblCadValorTotal">
+        <Component class="javax.swing.JLabel" name="lblExiValorTotal">
           <Properties>
             <Property name="text" type="java.lang.String" value="Valor Total:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtCadValorTotal">
+        <Component class="javax.swing.JTextField" name="txtExiValorTotal">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="text" type="java.lang.String" value="0.0"/>
@@ -189,30 +193,12 @@
                           <Component id="jScrollPane1" alignment="2" min="-2" pref="428" max="-2" attributes="0"/>
                           <Component id="lblProdutosNota" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnDelItens" linkSize="2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnAtuItens" linkSize="2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnCadItens" linkSize="2" max="32767" attributes="0"/>
-                          <Component id="btnAtualizarLista" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="261" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnAtualizarLista" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnCadItens" linkSize="1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnAtuItens" linkSize="1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnDelItens" linkSize="1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="lblProdutosNota" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
@@ -222,33 +208,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnCadItens">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Adicionar Itens"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadItensActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnAtuItens">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Atualizar Itens"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAtuItensActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnDelItens">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Deletar Itens"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDelItensActionPerformed"/>
-              </Events>
-            </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -256,7 +215,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tabCadItensNota">
+                <Component class="javax.swing.JTable" name="tabExiItensNota">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="5" rowCount="0">
@@ -280,15 +239,6 @@
                 <Property name="text" type="java.lang.String" value="Produtos da nota"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnAtualizarLista">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Atualizar Lista"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAtualizarListaActionPerformed"/>
-              </Events>
-            </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JButton" name="btnVoltar">
@@ -299,31 +249,22 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVoltarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblCadNotaFiscal">
+        <Component class="javax.swing.JLabel" name="lblExiNotaFiscal">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nota Fiscal:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtCadNotaFiscal">
+        <Component class="javax.swing.JTextField" name="txtExiNotaFiscal">
         </Component>
-        <Component class="javax.swing.JComboBox" name="cobCadConstrutor">
+        <Component class="javax.swing.JButton" name="btnExiNota">
           <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
-            </Property>
-            <Property name="toolTipText" type="java.lang.String" value=""/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnCadNota">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Criar nota"/>
+            <Property name="text" type="java.lang.String" value="Procurar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadNotaActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExiNotaActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtExiOperador">
         </Component>
       </SubComponents>
     </Container>

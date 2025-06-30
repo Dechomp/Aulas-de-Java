@@ -79,7 +79,7 @@ public class NotaDAO implements ClasseDAO{
 
                 return nota.getId();
             }catch (SQLException ex){
-                System.out.println("Erro ao consultar id: "+ ex.getMessage());
+                System.out.println("Erro ao consultar id da nota de entrada: "+ ex.getMessage());
                 return 0b0;
             }
         }
@@ -101,71 +101,71 @@ public class NotaDAO implements ClasseDAO{
 
                 return nota.getId();
             }catch (SQLException ex){
-                System.out.println("Erro ao consultar id: "+ ex.getMessage());
+                System.out.println("Erro ao consultar id da nota de Saida: "+ ex.getMessage());
                 return 0b0;
             }
         }
     }
     
-    
-    /*
-    public Produto getProduto(int id, String tipo){
-        String sql = "SELECT pro_nome, pro_preco, pro_codigoBarras, pro_estoque, cat_id FROM produto where pro_id = ?";
+   
+    public Nota getNota(Nota nota){
+        if ("Entrada".equals(nota.getTipo())){
+            String sql = "Select noE_data, noE_valorTotal, noE_notaFiscal,for_CNPJ from notaEntrada where noE_id = ?;";
         
-        try{
-            PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            
-
-            stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
-            Produto p = new Produto("", 0.0f, "", 0, 0);
-            
-            rs.first();
-            
-            p.setId(id);
-            p.setNome(rs.getString("pro_nome"));
-            p.setPreco(rs.getFloat("pro_preco"));
-            p.setCodidgoBarras(rs.getString("pro_codigoBarras"));
-            p.setEstoque(rs.getInt("pro_estoque"));
-            p.setIdCategoria(rs.getInt("cat_id"));
-            
-            
-            
-            return p;
-        }catch (SQLException ex){
-            System.out.println("Erro ao consultar produto: "+ ex.getMessage());
-            return null;
-        }
-    }
-    */
-    /*
-    public ArrayList<Produto> getProdutos(){
-        String sql = "SELECT pro_id, pro_nome FROM produto ";
-        
-        try{
-            PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            
-            ArrayList<Produto> lista = new ArrayList<>();
-            
-            ResultSet rs = stmt.executeQuery();
-            
-            rs.first();
-            do{
-                Produto p = new Produto( "", 0.0f, "", 0, 0);
-                p.setId(rs.getInt("pro_id"));
-                p.setNome(rs.getString("pro_nome"));
+            try{
+                PreparedStatement stmt = this.conn.prepareStatement(sql);
+                stmt.setInt(1, nota.getId());
                 
-                lista.add(p);
-            }while(rs.next());
-            
-            
-            return lista;
-        }catch (SQLException ex){
-            System.out.println("Erro ao consultar produto: "+ ex.getMessage());
-            return null;
+                ResultSet rs = stmt.executeQuery();
+                
+                Nota n = new Nota();
+                
+                rs.first();
+                
+                n.setId(nota.getId());
+                n.setData(rs.getString("noE_data"));
+                n.setNotaFiscal(rs.getString("noE_notaFiscal"));
+                n.setValorTotal(rs.getFloat("noE_valorTotal"));
+                n.setOperador(rs.getString("for_CNPJ"));
+                n.setTipo(nota.getTipo());
+
+                return n;
+                
+
+            } catch(SQLException ex){
+                System.out.println("Erro ao consultar nota de entrada: " + ex.getMessage());
+                return null;
+            }
+        }
+        else{
+            String sql = "Select noS_data, noS_valorTotal, noS_notaFiscal,cli_CPF from notaSaida where noS_id = ?;";
+        
+            try{
+                PreparedStatement stmt = this.conn.prepareStatement(sql);
+                stmt.setInt(1, nota.getId());
+                
+                ResultSet rs = stmt.executeQuery();
+                
+                Nota n = new Nota();
+                
+                rs.first();
+                
+                n.setId(nota.getId());
+                n.setData(rs.getString("noS_data"));
+                n.setNotaFiscal(rs.getString("noS_notaFiscal"));
+                n.setValorTotal(rs.getFloat("noS_valorTotal"));
+                n.setOperador(rs.getString("cli_CPF"));
+                n.setTipo(nota.getTipo());
+
+                return n;
+                
+
+            } catch(SQLException ex){
+                System.out.println("Erro ao consultar nota de saida: " + ex.getMessage());
+                return null;
+            }
         }
     }
-    */
     @Override
     public boolean atualizar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
