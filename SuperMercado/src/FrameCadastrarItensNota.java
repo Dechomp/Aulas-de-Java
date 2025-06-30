@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -48,21 +49,34 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
         lblCadValorUnitario = new javax.swing.JLabel();
         txtCadValorUnitario = new javax.swing.JTextField();
         lblCadValorTotal = new javax.swing.JLabel();
-        CadValorTotal = new javax.swing.JTextField();
+        txtCadValorTotal = new javax.swing.JTextField();
         txtCadastrar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         lblCadIDNota = new javax.swing.JLabel();
         txtCadID = new javax.swing.JTextField();
+        lblCadTipo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblCadItens.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        lblCadItens.setText("Cadastrar Itens na Nota");
+        lblCadItens.setText("Cadastrar Itens na Nota de");
         lblCadItens.setToolTipText("");
 
         lblCadQuantidade.setText("Quantidade:");
 
+        txtCadQuantidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCadQuantidadeActionPerformed(evt);
+            }
+        });
+
         lblProduto.setText("Produto:");
+
+        cobCadProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cobCadProdutoActionPerformed(evt);
+            }
+        });
 
         lblCadValorUnitario.setText("Valor Unitário:");
 
@@ -70,7 +84,7 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
 
         lblCadValorTotal.setText("Valor Total:");
 
-        CadValorTotal.setEnabled(false);
+        txtCadValorTotal.setEnabled(false);
 
         txtCadastrar.setText("Cadastrar");
         txtCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -86,9 +100,12 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
             }
         });
 
-        lblCadIDNota.setText("IDda nota:");
+        lblCadIDNota.setText("ID da nota:");
 
         txtCadID.setEnabled(false);
+
+        lblCadTipo.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        lblCadTipo.setText("p");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -103,7 +120,9 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
                                 .addComponent(lblCadIDNota)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtCadID, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblCadItens)))
+                            .addComponent(lblCadItens))
+                        .addGap(18, 18, 18)
+                        .addComponent(lblCadTipo))
                     .addGroup(javax.swing.GroupLayout.Alignment.CENTER, jPanel1Layout.createSequentialGroup()
                         .addGap(55, 55, 55)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,16 +143,18 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cobCadProduto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(CadValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtCadValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(btnVoltar, javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(txtCadastrar, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(223, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(lblCadItens)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(lblCadItens)
+                    .addComponent(lblCadTipo))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCadIDNota)
@@ -149,7 +170,7 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
                     .addComponent(lblCadValorUnitario)
                     .addComponent(txtCadValorUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCadValorTotal)
-                    .addComponent(CadValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCadValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(txtCadastrar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -162,8 +183,7 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -180,10 +200,47 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void txtCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCadastrarActionPerformed
-        // TODO add your handling code here:
-        FrameCadastrarItensNota id = new FrameCadastrarItensNota();
-        txtCadID.setText(id.getTitle());
+        // TODO add your handling code here: 
+        FrameCadastrarNota frCadNota = new FrameCadastrarNota();
+        if(txtCadQuantidade.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Há campos vazios ou incorretos, por favor corrija", "Campo vazio", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            NotaProduto np = new NotaProduto();
+            
+            np.setTipo(lblCadTipo.getText());
+            np.setNotaId(Integer.parseInt(txtCadID.getText()));
+            np.setQuantidade(Integer.parseInt(txtCadQuantidade.getText()));
+            np.setValorTotal(Float.parseFloat(txtCadValorTotal.getText()));
+            np.setValorUnitario(Float.parseFloat(txtCadValorUnitario.getText()));
+            Produto p = (Produto) cobCadProduto.getSelectedItem();
+            np.setProdutoID(p.getId());
+            
+            NotaProdutoDAO npDAO = new NotaProdutoDAO();
+            npDAO.inserir(np);
+            frCadNota.preencherTabela();
+        }
+        
     }//GEN-LAST:event_txtCadastrarActionPerformed
+
+    private void cobCadProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cobCadProdutoActionPerformed
+        // TODO add your handling code here:
+        Produto p = (Produto) cobCadProduto.getSelectedItem();
+        
+        ProdutoDAO pDAO = new ProdutoDAO();
+       
+        Produto produto = pDAO.getProduto(p.getId());
+        
+        txtCadValorUnitario.setText("" + produto.getPreco());
+        
+    }//GEN-LAST:event_cobCadProdutoActionPerformed
+
+    private void txtCadQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCadQuantidadeActionPerformed
+        // TODO add your handling code here:
+        float precoTotal = Float.parseFloat(txtCadValorUnitario.getText());
+        precoTotal *= Integer.parseInt(txtCadQuantidade.getText());
+        txtCadValorTotal.setText("" + precoTotal);
+    }//GEN-LAST:event_txtCadQuantidadeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,18 +278,19 @@ public class FrameCadastrarItensNota extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CadValorTotal;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JComboBox cobCadProduto;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCadIDNota;
     private javax.swing.JLabel lblCadItens;
     private javax.swing.JLabel lblCadQuantidade;
+    public javax.swing.JLabel lblCadTipo;
     private javax.swing.JLabel lblCadValorTotal;
     private javax.swing.JLabel lblCadValorUnitario;
     private javax.swing.JLabel lblProduto;
     public javax.swing.JTextField txtCadID;
     private javax.swing.JTextField txtCadQuantidade;
+    private javax.swing.JTextField txtCadValorTotal;
     private javax.swing.JTextField txtCadValorUnitario;
     private javax.swing.JButton txtCadastrar;
     // End of variables declaration//GEN-END:variables

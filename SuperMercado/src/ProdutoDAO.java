@@ -25,6 +25,7 @@ public class ProdutoDAO implements ClasseDAO{
         this.conexao = new Conexao();
         this.conn =  this.conexao.getConexao();
     }
+    
     public void inserir (Produto produto){
         String sql = "INSERT INTO produto (pro_nome, pro_preco, pro_codigoBarras, pro_estoque, cat_id) VALUES (?,?,?,?,?);";
         
@@ -71,6 +72,30 @@ public class ProdutoDAO implements ClasseDAO{
             return null;
         }
     }
+    
+    public String getProdutoNome(int id){
+        String sql = "SELECT pro_nome FROM produto where pro_id = ?";
+        
+        try{
+            PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            
+
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            Produto p = new Produto();
+            
+            rs.first();
+            
+            p.setId(id);
+            p.setNome(rs.getString("pro_nome"));      
+            
+            return p.getNome();
+        }catch (SQLException ex){
+            System.out.println("Erro ao consultar produto: "+ ex.getMessage());
+            return null;
+        }
+    }
+    
     
     public ArrayList<Produto> getProdutos(){
         String sql = "SELECT pro_id, pro_nome FROM produto ";

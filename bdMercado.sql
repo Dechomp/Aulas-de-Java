@@ -56,12 +56,12 @@ create table notaSaida(
 );
 
 create table notaEntradaProduto(
-	nEP_id int not null auto_increment primary key,
-    nEP_quantidade int not null,
-    nEP_valorUnitario decimal (10,2) not null,
-    nEP_valorTotal decimal (10,2) not null,
-    pro_id int,
-    noE_id int,     
+		nEP_id int not null auto_increment primary key,
+		nEP_quantidade int not null,
+		nEP_valorUnitario decimal (10,2) not null,
+		nEP_valorTotal decimal (10,2) not null,
+		pro_id int,
+		noE_id int,     
     FOREIGN KEY (pro_id) REFERENCES produto(pro_id),
     FOREIGN KEY (noE_id) REFERENCES notaEntrada(noE_id)
 );
@@ -111,4 +111,5 @@ select * from produto;
 select * from fornecedor;
 select * from notaEntrada;
 select * from notaSaida;
-
+select * from notaEntradaProduto;
+select * from notaSaidaProduto;

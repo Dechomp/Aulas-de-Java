@@ -24,8 +24,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="20" max="32767" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="jPanel1" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -54,6 +53,8 @@
                               </Group>
                               <Component id="lblCadItens" alignment="2" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="lblCadTipo" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="2" attributes="0">
                           <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
@@ -79,7 +80,7 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="cobCadProduto" max="32767" attributes="0"/>
-                                      <Component id="CadValorTotal" min="-2" pref="152" max="-2" attributes="0"/>
+                                      <Component id="txtCadValorTotal" min="-2" pref="152" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="btnVoltar" alignment="2" min="-2" max="-2" attributes="0"/>
@@ -87,7 +88,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="169" max="32767" attributes="0"/>
+                  <EmptySpace pref="223" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -95,7 +96,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                  <Component id="lblCadItens" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="2" attributes="0">
+                      <Component id="lblCadItens" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblCadTipo" alignment="2" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblCadIDNota" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -113,7 +117,7 @@
                       <Component id="lblCadValorUnitario" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtCadValorUnitario" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblCadValorTotal" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CadValorTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCadValorTotal" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="txtCadastrar" min="-2" max="-2" attributes="0"/>
@@ -130,7 +134,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="48" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cadastrar Itens na Nota"/>
+            <Property name="text" type="java.lang.String" value="Cadastrar Itens na Nota de"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
@@ -140,6 +144,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCadQuantidade">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCadQuantidadeActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblProduto">
           <Properties>
@@ -152,6 +159,9 @@
               <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cobCadProdutoActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
           </AuxValues>
@@ -171,7 +181,7 @@
             <Property name="text" type="java.lang.String" value="Valor Total:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="CadValorTotal">
+        <Component class="javax.swing.JTextField" name="txtCadValorTotal">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
@@ -194,12 +204,23 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblCadIDNota">
           <Properties>
-            <Property name="text" type="java.lang.String" value="IDda nota:"/>
+            <Property name="text" type="java.lang.String" value="ID da nota:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCadID">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblCadTipo">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="48" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="p"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

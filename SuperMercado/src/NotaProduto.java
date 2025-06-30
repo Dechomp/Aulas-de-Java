@@ -14,6 +14,15 @@ public class NotaProduto {
     private float valorTotal;
     private int produtoID;
     private int notaId;
+    private String tipo;
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 
     public NotaProduto() {
     }
@@ -65,6 +74,5 @@ public class NotaProduto {
     public void setNotaId(int notaId) {
         this.notaId = notaId;
     }
-    
     
 }
